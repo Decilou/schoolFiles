@@ -65,5 +65,14 @@ public abstract class Cars {
         decrementSpeed(amount);
     }
 
-
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "nrDoors=" + nrDoors +
+                ", enginePower=" + enginePower +
+                ", currentSpeed=" + currentSpeed +
+                ", color=" + color +
+                ", modelName='" + modelName + '\'' +
+                '}';
+    }
 }
