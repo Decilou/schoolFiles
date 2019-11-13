@@ -46,6 +46,12 @@ public abstract class Cars implements IMovable {
         currentSpeed = 0;
     }
 
+    /**
+     * Increases speed according to different equations depending on the subclass.
+     * (för användaren av koden som kanske inte vet
+     * det tekniska. Förklara helt enkelt. Inte vad den implementerar osv
+     * @param amount skriv några ord här.
+     */
 
     public abstract void incrementSpeed(double amount);
 
