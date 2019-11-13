@@ -7,12 +7,6 @@ public class Volvo240 extends Cars {
 
     public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
         super(nrDoors, enginePower, currentSpeed, color, modelName);
-        /*nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
-
-         */
     }
 
     public double speedFactor() {

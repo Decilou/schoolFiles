@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Cars {
+public abstract class Cars implements IMovable {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -29,7 +29,7 @@ public abstract class Cars {
         return currentSpeed;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
+    protected void setCurrentSpeed(double currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
@@ -37,9 +37,6 @@ public abstract class Cars {
         return color;
     }
 
-    public void setColor(Color clr) {
-        color = clr;
-    }
 
     public void startEngine() {
         currentSpeed = 0.1;
@@ -74,5 +71,33 @@ public abstract class Cars {
                 ", color=" + color +
                 ", modelName='" + modelName + '\'' +
                 '}';
+    }
+
+
+    public void move(){
+        //move backwards or forwards in the direction the car is facing.
+
+        if (currentSpeed != 0) {
+            switch (this.getDirection) {
+                case RIGHT;
+                    Position = getCurrentSpeed() + currentLocation;
+                case LEFT;
+                    Position = -1*getCurrentSpeed() + currentLocation;
+
+
+            }
+            Position = getCurrentSpeed() + currentLocation;
+        }
+
+    }
+
+
+    public void turnLeft(){
+
+    }
+
+
+    public void turnRight(){
+
     }
 }
