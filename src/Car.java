@@ -54,8 +54,8 @@ public abstract class Car implements IMovable {
     public abstract double speedFactor();
 
     /**
-     *
-     * @param amount meaning the amount the sped will increase with.
+     * A method for increasing the speed.
+     * @param amount meaning the amount the speed will increase with.
      */
 
     private void incrementSpeed(double amount) {
@@ -63,8 +63,8 @@ public abstract class Car implements IMovable {
     }
 
     /**
-     *
-     * @param amount
+     * A method for decreasing the speed, or if the speed is zero, do nothing.
+     * @param amount meaning the amount the speed will decrease with.
      */
 
     private void decrementSpeed(double amount) {
@@ -118,7 +118,7 @@ public abstract class Car implements IMovable {
     }
 
     /**
-     *
+     * This method tells the car what to do when it is told to move.
      */
 
     public void move(){
@@ -143,7 +143,7 @@ public abstract class Car implements IMovable {
     }
 
     /**
-     *
+     * This method tells the car what to do when it is told to turn right.
      */
 
 
@@ -168,7 +168,7 @@ public abstract class Car implements IMovable {
     }
 
     /**
-     * This method tells the car what to do when it turns left.
+     * This method tells the car what to do when it is told to turn left.
      */
 
     public void turnLeft() {
