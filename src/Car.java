@@ -1,5 +1,9 @@
 import java.awt.*;
 
+
+/**
+ * Class for a car. Has methods to start/stop engine, gas, brake.
+ */
 public abstract class Car implements IMovable {
 
     private int nrDoors; // Number of doors on the car
@@ -7,10 +11,9 @@ public abstract class Car implements IMovable {
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private Direction currentDirection;
+    private Direction currentDirection; //Current direction
     private double x; // Position variable
     private double y; // Position variable
-    private boolean testValue = true;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
         this.nrDoors = nrDoors;
@@ -26,14 +29,6 @@ public abstract class Car implements IMovable {
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
         this(nrDoors,enginePower,currentSpeed,color,modelName,Direction.RIGHT);
-    }
-
-
-
-
-
-    public boolean isTestValue() {
-        return testValue;
     }
 
     public int getNrDoors() {
@@ -132,8 +127,6 @@ public abstract class Car implements IMovable {
      * Method that moves the car in the direction it's facing.
      */
     public void move(){
-        //move backwards or forwards in the direction the car is facing.
-
         if (currentSpeed != 0) {
             switch (getCurrentDirection()) {
                 case RIGHT:
@@ -176,7 +169,6 @@ public abstract class Car implements IMovable {
     /**
      * Method that rotates the car 90 degrees counter-clockwise.
      */
-
     public void turnLeft() {
         switch (getCurrentDirection()) {
             case UP:
