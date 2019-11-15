@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 
-public class TestIncrementSpeed {
+public class TestDecrementSpeed {
 
     private Saab95 testSaab;
     private Volvo240 testVolvo;
@@ -19,15 +19,14 @@ public class TestIncrementSpeed {
     }
 
     @Test
-    public void testIfMinimumIsChosenEngineOff() {
+    public void testIfMaximumIsChosenEngineOff() {
 
         assertTrue(testSaab.getCurrentSpeed() == 0);
-
 
     }
 
     @Test
-    public void testIfMinimumIsChosenEngineOn() {
+    public void testIfMaximumIsChosenEngineOn() {
 
         testSaab.startEngine();
 
@@ -36,17 +35,19 @@ public class TestIncrementSpeed {
     }
 
     @Test
-    public void testThatTheSpeedIncreases () {
+    public void testThatTheSpeedDecreases () {
 
         testSaab.startEngine();
 
+        testSaab.gas(10);
+
         double before = testSaab.getCurrentSpeed();
 
-        testSaab.gas(10);
+        testSaab.brake(10);
 
         double after = testSaab.getCurrentSpeed();
 
-        assertTrue(before < after);
+        assertTrue(before > after);
 
     }
 

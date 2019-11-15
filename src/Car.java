@@ -8,8 +8,8 @@ public abstract class Car implements IMovable {
     private Color color; // Color of the car
     private String modelName; // The car model name
     private Direction currentDirection;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private boolean testValue = true;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
@@ -111,7 +111,7 @@ public abstract class Car implements IMovable {
     }
 
     private void setX(double x) {
-        this.x = (int) x;
+        this.x = x;
     }
 
     public double getY() {
@@ -119,7 +119,7 @@ public abstract class Car implements IMovable {
     }
 
     private void setY(double y) {
-        this.y = (int) y;
+        this.y = y;
     }
 
     /**
