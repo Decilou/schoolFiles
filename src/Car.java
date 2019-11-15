@@ -8,8 +8,8 @@ public abstract class Car implements IMovable {
     private Color color; // Color of the car
     private String modelName; // The car model name
     private Direction currentDirection;
-    private double x;
-    private double y;
+    private double x; // Position variable
+    private double y; // Position variable
     private boolean testValue = true;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
@@ -59,19 +59,17 @@ public abstract class Car implements IMovable {
     public abstract double speedFactor();
 
     /**
-     * A method for increasing the speed.
-     * @param amount meaning the amount the speed will increase with.
+     * Method for increasing current speed.
+     * @param amount amount to increase with.
      */
-
     private void incrementSpeed(double amount) {
         setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
     }
 
     /**
-     * A method for decreasing the speed, or if the speed is zero, do nothing.
-     * @param amount meaning the amount the speed will decrease with.
+     * Method for decreasing current speed. If the speed is zero, do nothing.
+     * @param amount amount to decrease with.
      */
-
     private void decrementSpeed(double amount) {
         setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
     }
@@ -111,7 +109,7 @@ public abstract class Car implements IMovable {
     }
 
     private void setX(double x) {
-        this.x = x;
+        this.x = (int) x;
     }
 
     public double getY() {
@@ -119,13 +117,12 @@ public abstract class Car implements IMovable {
     }
 
     private void setY(double y) {
-        this.y = y;
+        this.y = (int) y;
     }
 
     /**
-     * This method tells the car what to do when it is told to move.
+     * Method that moves the car in the direction it's facing.
      */
-
     public void move(){
         //move backwards or forwards in the direction the car is facing.
 
@@ -148,12 +145,9 @@ public abstract class Car implements IMovable {
     }
 
     /**
-     * This method tells the car what to do when it is told to turn right.
+     * Method that rotates the car 90 degrees clockwise.
      */
-
-
     public void turnRight(){
-
         switch (getCurrentDirection()) {
             case UP:
                 setCurrentDirection(Direction.RIGHT);
@@ -169,11 +163,10 @@ public abstract class Car implements IMovable {
                 break;
 
         }
-
     }
 
     /**
-     * This method tells the car what to do when it is told to turn left.
+     * Method that rotates the car 90 degrees counter-clockwise.
      */
 
     public void turnLeft() {
@@ -190,8 +183,6 @@ public abstract class Car implements IMovable {
             case RIGHT:
                 setCurrentDirection(Direction.UP);
                 break;
-
-
         }
     }
 }
