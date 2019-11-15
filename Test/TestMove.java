@@ -4,7 +4,6 @@ import org.junit.Test;
 import java.awt.*;
 
 import static org.junit.Assert.assertTrue;
-import static java.lang.System.out;
 
 
 public class TestMove {

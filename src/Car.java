@@ -117,7 +117,7 @@ public abstract class Car implements IMovable {
     }
 
     private void setX(double x) {
-        this.x = (int) x;
+        this.x = x;
     }
 
     public double getY() {
@@ -125,7 +125,7 @@ public abstract class Car implements IMovable {
     }
 
     private void setY(double y) {
-        this.y = (int) y;
+        this.y = y;
     }
 
     /**
