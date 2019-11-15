@@ -12,17 +12,25 @@ public abstract class Car implements IMovable {
     private double y;
     private boolean testValue = true;
 
-    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
         this.color = color;
         this.modelName = modelName;
-        currentDirection = Direction.RIGHT;
+        this.currentDirection = currentDirection;
         x = 10;
         y = 10;
         stopEngine();
     }
+
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
+        this(nrDoors,enginePower,currentSpeed,color,modelName,Direction.RIGHT);
+    }
+
+
+
+
 
     public boolean isTestValue() {
         return testValue;
