@@ -13,11 +13,14 @@ public class TestSpeedFactor {
 
     private Saab95 testSaab;
     private Volvo240 testVolvo;
+    private Volvo240 testVolvo2;
 
     @Before
     public void init() {
         testSaab = new Saab95(4,100,0, Color.red, "saab");
         testVolvo = new Volvo240(4,100,0, Color.red, "volvo");
+        testVolvo2 = new Volvo240(6,200,0, Color.black, "Mark");
+
     }
 
     @Test
@@ -52,19 +55,9 @@ public class TestSpeedFactor {
     }
 
     @Test
-    public void testIfTurningOnEngineChangesSpeedFactorForVolvo () {
+    public void testIfEnginePowerChangesSpeedFactor () {
 
-        double before = testVolvo.speedFactor();
-
-        testVolvo.startEngine();
-
-        double after = testVolvo.speedFactor();
-
-        out.println(before);
-        out.println(after);
-
-
-        assertTrue(true);
+        assertTrue(testVolvo2.speedFactor() > testVolvo.speedFactor());
 
     }
 
