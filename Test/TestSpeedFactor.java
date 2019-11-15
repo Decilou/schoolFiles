@@ -20,7 +20,7 @@ public class TestSpeedFactor {
     @Test
     public void testIfSaabTurboChangesSpeedFactor () {
         testSaab.startEngine();
-        
+
 
     }
 
