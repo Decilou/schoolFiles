@@ -16,10 +16,14 @@ public class TestDecrementSpeed {
         testSaab = new Saab95(4,100,0, Color.red, "saab");
         testVolvo = new Volvo240(4,100,0, Color.red, "volvo");
 
+        testSaab.startEngine();
+
     }
 
     @Test
     public void testIfMaximumIsChosenEngineOff() {
+
+        testSaab.stopEngine();
 
         assertTrue(testSaab.getCurrentSpeed() == 0);
 
@@ -28,16 +32,12 @@ public class TestDecrementSpeed {
     @Test
     public void testIfMaximumIsChosenEngineOn() {
 
-        testSaab.startEngine();
-
         assertTrue(testSaab.getCurrentSpeed() > 0 && testSaab.getCurrentSpeed() < 100);
 
     }
 
     @Test
     public void testThatTheSpeedDecreases () {
-
-        testSaab.startEngine();
 
         testSaab.gas(1);
 

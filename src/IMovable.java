@@ -1,9 +1,23 @@
+/**
+ * Contract for movable objects.
+ */
+
 public interface IMovable {
 
-    double getCurrentSpeed();
+
+    /**
+     * Moves the object.
+     */
     void move();
+
+    /**
+     * Changes direction counterclockwise.
+     */
     void turnLeft();
+
+    /**
+     * Changes direction clockwise.
+     */
     void turnRight();
-    Direction getCurrentDirection();
 
 }

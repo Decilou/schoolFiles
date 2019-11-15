@@ -41,7 +41,6 @@ public class TestMove {
     @Test
     public void testIfCarMovesRIGHT () {
 
-
         double before = testVolvo.getX();
 
         testVolvo.startEngine();
@@ -57,8 +56,7 @@ public class TestMove {
     @Test
     public void testIfCarMovesLEFT () {
 
-        testVolvo.turnLeft();
-        testVolvo.turnLeft();
+        testVolvo = new Volvo240(4,100,0, Color.red, "volvo", Direction.LEFT);
 
         double before = testVolvo.getX();
 

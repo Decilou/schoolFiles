@@ -13,13 +13,18 @@ public class TestIncrementSpeed {
 
     @Before
     public void init() {
-        testSaab = new Saab95(4,100,0, Color.red, "saab");
-        testVolvo = new Volvo240(4,100,0, Color.red, "volvo");
+        testSaab = new Saab95(4, 100, 0, Color.red, "saab");
+        testVolvo = new Volvo240(4, 100, 0, Color.red, "volvo");
+
+        testSaab.startEngine();
+
 
     }
 
     @Test
     public void testIfMinimumIsChosenEngineOff() {
+
+        testSaab.stopEngine();
 
         assertTrue(testSaab.getCurrentSpeed() == 0);
 
@@ -29,16 +34,12 @@ public class TestIncrementSpeed {
     @Test
     public void testIfMinimumIsChosenEngineOn() {
 
-        testSaab.startEngine();
-
         assertTrue(testSaab.getCurrentSpeed() > 0 && testSaab.getCurrentSpeed() < 100);
 
     }
 
     @Test
-    public void testThatTheSpeedIncreases () {
-
-        testSaab.startEngine();
+    public void testThatTheSpeedIncreases() {
 
         double before = testSaab.getCurrentSpeed();
 
@@ -49,8 +50,6 @@ public class TestIncrementSpeed {
         assertTrue(before < after);
 
     }
-
-
 
 
 }
