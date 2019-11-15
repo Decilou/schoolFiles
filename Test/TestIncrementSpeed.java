@@ -42,7 +42,7 @@ public class TestIncrementSpeed {
 
         double before = testSaab.getCurrentSpeed();
 
-        testSaab.gas(10);
+        testSaab.gas(1);
 
         double after = testSaab.getCurrentSpeed();
 

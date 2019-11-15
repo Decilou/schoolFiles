@@ -21,11 +21,11 @@ public class TestSpeedFactor {
         testVolvo = new Volvo240(4,100,0, Color.red, "volvo");
         testVolvo2 = new Volvo240(6,200,0, Color.black, "Mark");
 
+        testSaab.startEngine();
     }
 
     @Test
     public void testIfSaabTurboOnChangesSpeedFactor () {
-        testSaab.startEngine();
 
         double before = testSaab.speedFactor();
 
@@ -39,7 +39,6 @@ public class TestSpeedFactor {
 
     @Test
     public void testIfSaabTurboOffChangesSpeedFactor () {
-        testSaab.startEngine();
 
         testSaab.setTurboOn();
 

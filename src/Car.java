@@ -69,9 +69,7 @@ public abstract class Car implements IMovable {
      */
     // TODO fix this method according to lab pm
     public void gas(double amount) {
-        if(amount == 0 || amount == 1){
-            incrementSpeed(amount);
-        }
+        incrementSpeed(amount);
     }
 
     /**
@@ -79,9 +77,7 @@ public abstract class Car implements IMovable {
      * @param amount only 1 will result in speed decrease
      */
     public void brake(double amount) {
-        if(amount == 0 || amount == 1){
-            decrementSpeed(amount);
-        }
+        decrementSpeed(amount);
     }
 
     /**

@@ -39,11 +39,11 @@ public class TestDecrementSpeed {
 
         testSaab.startEngine();
 
-        testSaab.gas(10);
+        testSaab.gas(1);
 
         double before = testSaab.getCurrentSpeed();
 
-        testSaab.brake(10);
+        testSaab.brake(1);
 
         double after = testSaab.getCurrentSpeed();
 
