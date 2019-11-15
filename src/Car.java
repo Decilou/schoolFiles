@@ -31,35 +31,20 @@ public abstract class Car implements IMovable {
         this(nrDoors,enginePower,currentSpeed,color,modelName,Direction.RIGHT);
     }
 
-    public int getNrDoors() {
-        return nrDoors;
-    }
 
-    public double getEnginePower() {
-        return enginePower;
-    }
-
-    public double getCurrentSpeed() {
-        return currentSpeed;
-    }
-
-    private void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
+    /**
+     * Method that start the engine of the car. Current speed set to 0.1.
+     */
     public void startEngine() {
         currentSpeed = 0.1;
     }
 
+    /**
+     * Method that stop the engine of the car. Current speed set to 0.
+     */
     public void stopEngine() {
         currentSpeed = 0;
     }
-
-    public abstract double speedFactor();
 
     /**
      * Method for increasing current speed.
@@ -78,49 +63,25 @@ public abstract class Car implements IMovable {
     }
 
 
+    /**
+     * Method that increase the speed by amount 0 or 1.
+     * @param amount only 1 will result in speed increase
+     */
     // TODO fix this method according to lab pm
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if(amount == 0 || amount == 1){
+            incrementSpeed(amount);
+        }
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Method that decreases the speed by amount 0 or 1.
+     * @param amount only 1 will result in speed decrease
+     */
     public void brake(double amount) {
-        decrementSpeed(amount);
-    }
-
-    @Override
-    public String toString() {
-        return "Cars{" +
-                "nrDoors=" + nrDoors +
-                ", enginePower=" + enginePower +
-                ", currentSpeed=" + currentSpeed +
-                ", color=" + color +
-                ", modelName='" + modelName + '\'' +
-                '}';
-    }
-
-    public Direction getCurrentDirection() {
-        return currentDirection;
-    }
-
-    private void setCurrentDirection(Direction currentDirection) {
-        this.currentDirection = currentDirection;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    private void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    private void setY(double y) {
-        this.y = y;
+        if(amount == 0 || amount == 1){
+            decrementSpeed(amount);
+        }
     }
 
     /**
@@ -184,5 +145,63 @@ public abstract class Car implements IMovable {
                 setCurrentDirection(Direction.UP);
                 break;
         }
+    }
+
+    public abstract double speedFactor();
+
+    //------------------ GETTERS & SETTERS -----------------------------
+    public int getNrDoors() {
+        return nrDoors;
+    }
+
+    public double getEnginePower() {
+        return enginePower;
+    }
+
+    public double getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    private void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
+
+    private void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    private void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    private void setY(double y) {
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "nrDoors=" + nrDoors +
+                ", enginePower=" + enginePower +
+                ", currentSpeed=" + currentSpeed +
+                ", color=" + color +
+                ", modelName='" + modelName + '\'' +
+                '}';
     }
 }

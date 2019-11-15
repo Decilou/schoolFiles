@@ -60,6 +60,4 @@ public class TestSpeedFactor {
         assertTrue(testVolvo2.speedFactor() > testVolvo.speedFactor());
 
     }
-
-
 }
