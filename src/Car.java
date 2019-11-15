@@ -10,6 +10,7 @@ public abstract class Car implements IMovable {
     private Direction currentDirection;
     private int x;
     private int y;
+    private boolean testValue = true;
 
     public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
         this.nrDoors = nrDoors;
@@ -21,6 +22,10 @@ public abstract class Car implements IMovable {
         x = 10;
         y = 10;
         stopEngine();
+    }
+
+    public boolean isTestValue() {
+        return testValue;
     }
 
     public int getNrDoors() {
