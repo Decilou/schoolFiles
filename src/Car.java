@@ -64,22 +64,21 @@ public abstract class Car implements IMovable {
 
 
     /**
-     * Method that increase the speed by amount 0 or 1.
-     * @param amount only 1 will result in speed increase
+     * Method that increase speed according to amount.
+     * @param amount can be [0, 1]
      */
-    // TODO fix this method according to lab pm
     public void gas(double amount) {
-        if(amount == 0 || amount == 1){
+        if(0 <= amount && amount <= 1){
             incrementSpeed(amount);
         }
     }
 
     /**
-     * Method that decreases the speed by amount 0 or 1.
-     * @param amount only 1 will result in speed decrease
+     * Method that decrease speed according to amount.
+     * @param amount can be [0, 1]
      */
     public void brake(double amount) {
-        if(amount == 0 || amount == 1){
+        if(0 <= amount && amount <= 1){
             decrementSpeed(amount);
         }
     }
