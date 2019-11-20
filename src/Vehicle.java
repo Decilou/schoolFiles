@@ -10,7 +10,6 @@ public abstract class Vehicle implements IMovable {
     private Direction currentDirection; //Current direction
     private double x; // Position variable
     private double y; // Position variable
-    private boolean isMoving = false;
 
     public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
         this.nrDoors = nrDoors;
@@ -25,6 +24,10 @@ public abstract class Vehicle implements IMovable {
     }
 
     //-------------------- METHODS -----------------------------
+
+    public boolean isMoving (){
+        return (currentSpeed != 0);
+    }
 
     /**
      * Method that start the engine of the vehicle. Current speed set to 0.1.
@@ -186,10 +189,6 @@ public abstract class Vehicle implements IMovable {
 
     private void setY(double y) {
         this.y = y;
-    }
-
-    public boolean isMoving() {
-        return isMoving;
     }
 
     @Override

@@ -1,26 +1,16 @@
-public class Flatbed {
+/*public class Flatbed {
     private Truck parent;
-    private int angle;
+    private int maxWeight;
+    private int length;
+    private int width;
 
-    public Flatbed(int angle, Truck parent) {
-        this.angle = angle;
+    public Flatbed(Truck parent) {
         this.parent = parent;
     }
 
-    public void tipFlatbed(int increase){
-        if(0 <= angle && angle <= 70 && !parent.isMoving()){
-            angle = getAngle() + increase;
-        }
-
-    }
-
-    public void lowerFlatbed(int decrease){
-        if(0 <= angle && angle <= 70 && !parent.isMoving()){
-            angle = getAngle() - decrease;
-        }
-    }
-
-    public int getAngle() {
-        return angle;
+    public Truck getParent() {
+        return parent;
     }
 }
+
+ */
