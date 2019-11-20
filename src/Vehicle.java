@@ -191,4 +191,18 @@ public abstract class Vehicle implements IMovable {
     public boolean isMoving() {
         return isMoving;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "nrDoors=" + nrDoors +
+                ", enginePower=" + enginePower +
+                ", currentSpeed=" + currentSpeed +
+                ", color=" + color +
+                ", modelName='" + modelName + '\'' +
+                ", currentDirection=" + currentDirection +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
