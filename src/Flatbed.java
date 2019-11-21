@@ -2,20 +2,21 @@ public abstract class Flatbed {
     private int length;
     private int width;
     private int weight;
-    private int maxLoadingWeight;
+    private int maxLoadableWeight;
+    private int currentLoadedWeight;
 
-    public Flatbed(int length, int width, int weight, int maxLoadingWeight) {
+    public Flatbed(int length, int width, int weight, int maxLoadableWeight) {
         this.length = length;
         this.width = width;
         this.weight = weight;
-        this.maxLoadingWeight = maxLoadingWeight;
+        this.maxLoadableWeight = maxLoadableWeight;
     }
 
     public Flatbed() {
         length = 1463;
         width = 244;
         weight = 453;
-        maxLoadingWeight = 21772;
+        maxLoadableWeight = 21772;
     }
 
     public int getLength() {
@@ -30,15 +31,15 @@ public abstract class Flatbed {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public int getMaxLoadableWeight() {
+        return maxLoadableWeight;
     }
 
-    public int getMaxLoadingWeight() {
-        return maxLoadingWeight;
+    public int getCurrentLoadedWeight() {
+        return currentLoadedWeight;
     }
 
-    public void setMaxLoadingWeight(int maxLoadingWeight) {
-        this.maxLoadingWeight = maxLoadingWeight;
+    public void setCurrentLoadedWeight(int currentLoadedWeight) {
+        this.currentLoadedWeight = currentLoadedWeight;
     }
 }

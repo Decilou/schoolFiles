@@ -1,10 +1,13 @@
 public class RampFlatbed extends Flatbed {
     private CarTransporter parent;
     private OpenableObject rampStatus;
+    private int currentLoadedLength;
+    private int maxLoadedLength;
 
     public RampFlatbed(CarTransporter parent) {
         super();
         this.parent = parent;
+        maxLoadedLength = getLength();
         rampStatus = OpenableObject.CLOSED;
     }
 
@@ -14,27 +17,29 @@ public class RampFlatbed extends Flatbed {
 
     public void closeRamp() {
         rampStatus = OpenableObject.CLOSED;
-
     }
 
     public void loadFlatbed(Car car) {
-        if (!isMaxWeightReached() || !isMaxLengthReached(car.getLength())) {
-
+        if (isObjectLoadable(car)){
+            //Load the car and update all.
         }
-
     }
 
-    public boolean isMaxWeightReached() {
-
-        return (getWeight() < getMaxLoadingWeight());
-
+    private boolean isObjectLoadable(Car car){
+        return !(isMaxLengthReached(car.getLength()) || isMaxWeightReached(car.getWeight()) || isMaxWidthReached(car.getWidth()));
     }
 
-    public boolean isMaxLengthReached(int carLength) {
-
-        return (carLength+getLength() >)
+    private boolean isMaxWeightReached(int objectWeight) {
+        return (objectWeight + getCurrentLoadedWeight() <= getMaxLoadableWeight());
     }
 
+    private boolean isMaxLengthReached(int objectLength) {
+        return (objectLength + currentLoadedLength + 10 >= maxLoadedLength);
+    }
+
+    private boolean isMaxWidthReached(int objectWidth){
+        return (objectWidth >= this.getWidth());
+    }
 
     public OpenableObject getRampStatus() {
         return rampStatus;
