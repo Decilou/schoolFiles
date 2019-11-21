@@ -15,10 +15,10 @@ public abstract class Vehicle implements IMovable {
     private int width;
     private int weight;
 
-    public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
-        this.currentSpeed = currentSpeed;
+        this.currentSpeed = 0;
         this.color = color;
         this.modelName = modelName;
         this.currentDirection = currentDirection;
