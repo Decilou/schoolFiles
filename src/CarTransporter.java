@@ -13,7 +13,7 @@ public class CarTransporter extends Truck {
 
     @Override
     public void move(){
-        if(rampFlatbed.getRampStatus() == OpenableObject.CLOSED){
+        if(rampFlatbed.getRampStatus() == OpenStatus.CLOSED){
             super.move();
         } else {
             System.out.println("Cannot move when the ramp is down!");
