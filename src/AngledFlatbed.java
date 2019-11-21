@@ -1,6 +1,10 @@
 public class AngledFlatbed {
     private Scania parent;
     private int angle = 0;
+    private int length;
+    private int width;
+    private int weight;
+    private int maxLoadingWeight;
 
     public AngledFlatbed(Scania parent) {
         this.parent = parent;
