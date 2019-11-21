@@ -1,8 +1,8 @@
 public abstract class Flatbed {
-    private int length;
-    private int width;
-    private int weight;
-    private int maxLoadableWeight;
+    private final int length;
+    private final int width;
+    private final int weight;
+    private final int maxLoadableWeight;
     private int currentLoadedWeight;
 
     public Flatbed(int length, int width, int weight, int maxLoadableWeight) {

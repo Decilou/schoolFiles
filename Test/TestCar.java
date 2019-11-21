@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class TestVehicles {
+public class TestCar {
 
     private Saab95 testSaab;
     private Volvo240 testVolvo;
@@ -13,9 +13,9 @@ public class TestVehicles {
 
     @Before
     public void init() {
-        testSaab = new Saab95(4,100,0, Color.red, "saab",0,0,0);
-        testVolvo = new Volvo240(4,100,0, Color.red, "volvo",0,0,0);
-        testVolvo2 = new Volvo240(6,200,0, Color.black, "Mark",0,0,0);
+        testSaab = new Saab95(Color.red);
+        testVolvo = new Volvo240(Color.red);
+        testVolvo2 = new Volvo240(Color.black);
 
 
         testSaab.startEngine();
@@ -129,7 +129,7 @@ public class TestVehicles {
     @Test
     public void moveTestIfCarMovesLEFT () {
 
-        testVolvo = new Volvo240(4,100,0, Color.red, "volvo", Direction.LEFT,0,0,0);
+        testVolvo = new Volvo240(Color.red, Direction.LEFT);
 
         double before = testVolvo.getX();
 
@@ -256,12 +256,12 @@ public class TestVehicles {
 
     }
 
-    @Test
-    public void turnLeftTestIfEnginePowerChangesSpeedFactor () {
+/*    @Test
+    public void speedFactorTestIfEnginePowerChangesSpeedFactor () {
 
-        assertTrue(testVolvo2.speedFactor() > testVolvo.speedFactor());
+        assertTrue(testVolvo.speedFactor() > testVolvo.speedFactor());
 
-    }
+    }*/
 
     // -------------------- GETTERS AND SETTERS --------------------
 
