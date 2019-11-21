@@ -11,7 +11,11 @@ public abstract class Vehicle implements IMovable {
     private double x; // Position variable
     private double y; // Position variable
 
-    public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
+    private int length;
+    private int width;
+    private int weight;
+
+    public Vehicle(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
@@ -21,9 +25,13 @@ public abstract class Vehicle implements IMovable {
         x = 10;
         y = 10;
         stopEngine();
+
+        this.length = length;
+        this.width = width;
+        this.weight = weight;
     }
 
-    //-------------------- METHODS -----------------------------
+    //-------------------- METHODS --------------------
 
     public boolean isMoving (){
         return (currentSpeed != 0);
@@ -145,7 +153,7 @@ public abstract class Vehicle implements IMovable {
 
     public abstract double speedFactor();
 
-    //------------------ GETTERS & SETTERS -----------------------------
+    //-------------------- GETTERS & SETTERS --------------------
 
     public int getNrDoors() {
         return nrDoors;
@@ -189,6 +197,18 @@ public abstract class Vehicle implements IMovable {
 
     private void setY(double y) {
         this.y = y;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     @Override

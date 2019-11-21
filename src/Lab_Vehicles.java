@@ -5,7 +5,7 @@ public class Lab_Vehicles {
 
     public static void main(String[] args) {
 
-        Saab95 saab = new Saab95(2, 125, 0, Color.red, "Saab95");
+       /*Saab95 saab = new Saab95(2, 125, 0, Color.red, "Saab95");
         Volvo240 volvo = new Volvo240(4, 100, 0, Color.red,"Volvo240");
 
         saab.startEngine();
@@ -21,6 +21,8 @@ public class Lab_Vehicles {
         saab.brake(1);
 
         out.println(saab.getX() + "  |  " + saab.getCurrentSpeed());
+
+        */
 
 
 

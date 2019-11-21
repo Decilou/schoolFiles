@@ -14,9 +14,9 @@ public class TestGettersAndSetters {
 
     @Before
     public void init() {
-        testSaab = new Saab95(4,100,0, Color.red, "saab");
-        testVolvo = new Volvo240(4,100,0, Color.red, "volvo");
-        testVolvo2 = new Volvo240(6,200,0, Color.black, "Mark");
+        testSaab = new Saab95(4,100,0, Color.red, "saab",0,0,0);
+        testVolvo = new Volvo240(4,100,0, Color.red, "volvo",0,0,0);
+        testVolvo2 = new Volvo240(6,200,0, Color.black, "Mark",0,0,0);
     }
 
     @Test
