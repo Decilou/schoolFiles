@@ -9,21 +9,20 @@ public class Lab_Vehicles {
         Volvo240 volvo = new Volvo240(4, 100, 0, Color.red,"Volvo240");
 
         saab.startEngine();
-        out.println(saab.getX() + "." + saab.getCurrentSpeed());
+        out.println(saab.getX() + "  |  " + saab.getCurrentSpeed());
         saab.move();
-        out.println(saab.getX() + "." + saab.getCurrentSpeed());
-        saab.gas(1);
-        saab.gas(1);
-        saab.gas(1);
-        out.println(saab.getX() + "." + saab.getCurrentSpeed());
-        saab.gas(1);
-        saab.move();
-
-        out.println(saab.getX() + "." + saab.getCurrentSpeed());
-
         saab.gas(1);
 
-        out.println(saab.getX() + "." + saab.getCurrentSpeed());
+        out.println(saab.getX() + "  |  " + saab.getCurrentSpeed());
+
+        saab.brake(1);
+        out.println(saab.getX() + "  |  " + saab.getCurrentSpeed());
+
+        saab.brake(1);
+
+        out.println(saab.getX() + "  |  " + saab.getCurrentSpeed());
+
+
 
 
     }
