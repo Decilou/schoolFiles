@@ -7,12 +7,12 @@ public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
 
-    public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName, currentDirection);
+    public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
+        super(nrDoors, enginePower, currentSpeed, color, modelName, currentDirection, length, width, weight);
     }
 
-    public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
+    public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int length, int width, int weight) {
+        super(nrDoors, enginePower, currentSpeed, color, modelName,length, width, weight);
     }
 
 

@@ -6,11 +6,11 @@ import java.awt.*;
  */
 public abstract class Car extends Vehicle {
 
-    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection) {
-        super(nrDoors, enginePower, currentSpeed, color, modelName, currentDirection);
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
+        super(nrDoors, enginePower, currentSpeed, color, modelName, currentDirection, length, width, weight);
     }
 
-    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName) {
-        super(nrDoors,enginePower,currentSpeed,color,modelName,Direction.RIGHT);
+    public Car(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName, int length, int width, int weight) {
+        super(nrDoors,enginePower,currentSpeed,color,modelName,Direction.RIGHT, length, width, weight);
     }
 }
