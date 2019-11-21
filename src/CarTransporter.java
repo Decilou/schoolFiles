@@ -2,18 +2,18 @@ import java.awt.*;
 
 public class CarTransporter extends Truck {
 
-    private Ramp ramp;
+    private RampFlatbed rampFlatbed;
     int maxWeight;
 
-    public CarTransporter(double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight){
-        super(enginePower, currentSpeed, color, modelName, currentDirection, length, width, weight);
-        ramp = new Ramp(this);
+    public CarTransporter(double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight){
+        super(enginePower, color, modelName, currentDirection, length, width, weight);
+        rampFlatbed = new RampFlatbed(this);
     }
 
 
     @Override
     public void move(){
-        if(ramp.getAngle() == 90){
+        if(rampFlatbed.getRampStatus() == OpenableObject.CLOSED){
             super.move();
         } else {
             System.out.println("Cannot move when the ramp is down!");

@@ -3,12 +3,12 @@ import java.awt.*;
 public class Scania extends Truck {
 
     private AngledFlatbed angledFlatbed;
-    private int maxWeight;
+    private int maxWeightToPull;
 
-    public Scania(double enginePower, double currentSpeed, Color color, String modelName, Direction currentDirection, int length, int width, int weight){
-        super(enginePower, currentSpeed, color, modelName, currentDirection, length, width, weight);
+    public Scania(Color color, Direction currentDirection){
+        super(500, color, "Scania", currentDirection, 593, 255, 18000);
         angledFlatbed = new AngledFlatbed(this);
-        this.maxWeight = maxWeight;
+        this.maxWeightToPull = 40000;
     }
 
 
