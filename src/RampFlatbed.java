@@ -13,10 +13,28 @@ public class RampFlatbed extends Flatbed {
     }
 
     public void closeRamp() {
-
         rampStatus = OpenableObject.CLOSED;
 
     }
+
+    public void loadFlatbed(Car car) {
+        if (!isMaxWeightReached() || !isMaxLengthReached(car.getLength())) {
+
+        }
+
+    }
+
+    public boolean isMaxWeightReached() {
+
+        return (getWeight() < getMaxLoadingWeight());
+
+    }
+
+    public boolean isMaxLengthReached(int carLength) {
+
+        return (carLength+getLength() >)
+    }
+
 
     public OpenableObject getRampStatus() {
         return rampStatus;
