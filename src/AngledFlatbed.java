@@ -1,12 +1,9 @@
-public class AngledFlatbed {
+public class AngledFlatbed extends Flatbed {
     private Scania parent;
     private int angle = 0;
-    private int length;
-    private int width;
-    private int weight;
-    private int maxLoadingWeight;
 
     public AngledFlatbed(Scania parent) {
+        super();
         this.parent = parent;
     }
 

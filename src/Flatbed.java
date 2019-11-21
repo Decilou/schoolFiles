@@ -1,16 +1,13 @@
-/*public class Flatbed {
-    private Truck parent;
-    private int maxWeight;
+public abstract class Flatbed {
     private int length;
     private int width;
+    private int weight;
+    private int maxLoadingWeight;
 
-    public Flatbed(Truck parent) {
-        this.parent = parent;
-    }
-
-    public Truck getParent() {
-        return parent;
+    public Flatbed(int length, int width, int weight, int maxLoadingWeight) {
+        this.length = length;
+        this.width = width;
+        this.weight = weight;
+        this.maxLoadingWeight = maxLoadingWeight;
     }
 }
-
- */

@@ -1,19 +1,18 @@
-public class RampFlatbed {
+public class RampFlatbed extends Flatbed {
     private CarTransporter parent;
     private OpenableObject rampStatus;
 
     public RampFlatbed(CarTransporter parent) {
+        super();
         this.parent = parent;
         rampStatus = OpenableObject.CLOSED;
     }
 
-    public void openRamp(){
-
+    public void openRamp() {
         rampStatus = OpenableObject.OPEN;
-
     }
 
-    public void closeRamp(){
+    public void closeRamp() {
 
         rampStatus = OpenableObject.CLOSED;
 
