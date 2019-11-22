@@ -12,6 +12,10 @@ public class TestRampFlatbed {
     @Before
     public void init(){
         testTransporter = new CarTransporter(Color.blue);
+    }
+
+    @Test
+    public void test (){
 
     }
 
