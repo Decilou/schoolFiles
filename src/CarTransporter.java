@@ -1,15 +1,22 @@
 import java.awt.*;
 
+/**
+ * A class for a kind of Truck that can transport cars.
+ */
+
 public class CarTransporter extends Truck {
 
-    private RampFlatbed rampFlatbed;
-    int maxWeight;
+    private RampFlatbed rampFlatbed; // The truck flatbed with a ramp.
+    private final int maxWeight = 40000; // The max weight the truck can pull.
 
     public CarTransporter(double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight){
         super(enginePower, color, modelName, currentDirection, length, width, weight);
         rampFlatbed = new RampFlatbed(this);
     }
 
+    /**
+     * A method for moving the transporter when it can move, witch is when the ramp is closed.
+     */
 
     @Override
     public void move(){

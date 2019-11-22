@@ -14,7 +14,7 @@ public class CarWorkshop<T extends Car> {
         this.carsInWorkshop = new ArrayList<>();
         this.maxNumberOfCars = maxNumberOfCars;
     }
-    
+
     public boolean isFull (){
 
         return (carsInWorkshop.size() >= maxNumberOfCars);
