@@ -10,7 +10,7 @@ public class CarWorkshop<T extends Car> {
     private List <T> carsInWorkshop;
     private int maxNumberOfCars;
 
-    public CarWorkshop(List<T> carsInWorkshop, int maxNumberOfCars) {
+    public CarWorkshop(int maxNumberOfCars) {
         this.carsInWorkshop = new ArrayList<>();
         this.maxNumberOfCars = maxNumberOfCars;
     }
