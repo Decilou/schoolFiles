@@ -24,6 +24,7 @@ public class CarTransporter extends Truck {
      * A method for moving the transporter when it can move, witch is when the ramp is closed.
      */
 
+
     @Override
     public void move() {
         if (rampFlatbed.getRampStatus() == OpenStatus.CLOSED && rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() <= maxWeight) {
@@ -35,6 +36,11 @@ public class CarTransporter extends Truck {
             System.out.println("Cannot move when the ramp is down!");
             throw new IllegalCallerException("Cannot move when the ramp is down.");
         }
+    }
+
+    //TODO: Fix the "where is car"-problem.
+    public void placeUnloadedObjectInWorld(Car car) {
+        rampFlatbed.placeUnloadedObjectInWorld(car, getX(), getY(), getCurrentDirection());
     }
 
 }

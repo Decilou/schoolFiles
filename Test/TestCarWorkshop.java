@@ -9,13 +9,15 @@ public class TestCarWorkshop {
 
     private Volvo240 volvo240;
     private Saab95 saab95;
+
+    private Volvo240 volvo240nr2;
     private CarWorkshop<Volvo240> carWorkshop;
 
     @Before
     public void init() {
         volvo240 = new Volvo240(Color.red);
         saab95 = new Saab95(Color.black);
-        carWorkshop = new CarWorkshop<>(6);
+        carWorkshop = new CarWorkshop<>(2);
     }
 
     @Test
@@ -24,8 +26,17 @@ public class TestCarWorkshop {
     }
 
     @Test
-    public void isFull_shouldBeFalse(){
+    public void isFull_workshopShouldNotBeFull() {
         assertTrue(!carWorkshop.isFull());
+    }
+
+    @Test
+    public void isFull_workshopShouldBeFull() {
+        volvo240nr2 = new Volvo240(Color.black);
+
+        carWorkshop.loadCarIntoWorkshop(volvo240);
+        carWorkshop.loadCarIntoWorkshop(volvo240nr2);
+        assertTrue(carWorkshop.isFull());
     }
 
     @Test
@@ -39,5 +50,11 @@ public class TestCarWorkshop {
         carWorkshop.loadCarIntoWorkshop(volvo240);
 
         assertTrue(carWorkshop.unloadCarFromWorkshop(volvo240) == volvo240);
+    }
+
+    @Test
+    public void unloadCarFromWorkshop_carIsNotInWorkshop() {
+
+        assertTrue(!(carWorkshop.unloadCarFromWorkshop(volvo240) == volvo240));
     }
 }

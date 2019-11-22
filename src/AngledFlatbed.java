@@ -3,12 +3,10 @@
  */
 
 public class AngledFlatbed extends Flatbed {
-    private Scania parent; // Information from the Scania truck that pulls the flatbed
     private int angle = 0; // The flatbeds angle. Starts at 0.
 
     public AngledFlatbed(Scania parent) {
         super();
-        this.parent = parent;
     }
 
     //-------------------- METHODS --------------------
@@ -19,7 +17,7 @@ public class AngledFlatbed extends Flatbed {
      */
 
     public void tipFlatbed() {
-        if (0 <= angle && angle + 1 <= 70 && !parent.isMoving()) {
+        if (0 <= angle && angle + 1 <= 70) {
             angle = getAngle() + 1;
         }
     }
@@ -30,7 +28,7 @@ public class AngledFlatbed extends Flatbed {
      */
 
     public void lowerFlatbed() {
-        if (0 <= angle - 1 && angle <= 70 && !parent.isMoving()) {
+        if (0 <= angle - 1 && angle <= 70) {
             angle = getAngle() - 1;
         }
     }

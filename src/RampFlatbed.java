@@ -3,6 +3,7 @@ import java.util.Deque;
 
 
 //TODO: Add final on all instance variable that should be immutable.
+//TODO: Remove all instances of parent. Avoiding double dependency between rampFlatbed and CarTransporter.
 
 
 /**
@@ -11,7 +12,7 @@ import java.util.Deque;
  */
 
 public class RampFlatbed extends Flatbed {
-    private CarTransporter parent; // Information from the transporter truck that pulls the flatbed
+    //TODO: Remove parent to get away from double dependency. Delegation from CarTransporter.
     private OpenStatus rampStatus; // The status of the ramp. It can be either open or closed.
     private int currentLoadedLength; // The sum of the length of all loaded objects.
     private final int maxLoadedLength; //the maximum length that the flatbed can take.
@@ -19,7 +20,6 @@ public class RampFlatbed extends Flatbed {
 
     public RampFlatbed(CarTransporter parent) {
         super();
-        this.parent = parent;
         maxLoadedLength = getLength();
         rampStatus = OpenStatus.CLOSED;
     }
@@ -60,17 +60,17 @@ public class RampFlatbed extends Flatbed {
      *
      * @param car
      */
-    public void placeUnloadedObjectInWorld(Car car) {
+    public void placeUnloadedObjectInWorld(Car car, double x, double y, Direction currentDirection) {
 
-        switch (parent.getCurrentDirection()) {
+        switch (currentDirection) {
             case UP:
-                car.setY(parent.getY() - 10);
+                car.setY(y - 10);
             case RIGHT:
-                car.setX(parent.getX() - 10);
+                car.setX(x - 10);
             case DOWN:
-                car.setY(parent.getY() + 10);
+                car.setY(y + 10);
             case LEFT:
-                car.setX(parent.getX() + 10);
+                car.setX(x + 10);
         }
     }
 

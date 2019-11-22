@@ -1,5 +1,6 @@
 import java.awt.*;
 
+//TODO: Add that the car knows it's loaded. If loaded, stopEngine. Block start engine if loaded. Method for updating x, y.
 
 /**
  * Class for a car. Has methods to start/stop engine, gas, brake.
