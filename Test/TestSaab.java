@@ -13,7 +13,7 @@ public class TestSaab {
     @Before
     public void init() {
         testSaab = new Saab95(Color.red);
-        testSaab95 = new Saab95(Color.black);
+        testSaab2 = new Saab95(Color.black);
 
 
         testSaab.startEngine();
@@ -98,6 +98,8 @@ public class TestSaab {
 
     @Test
     public void moveTestIfMethodDoesNothingWhenEngineIsOf () {
+
+        testSaab.stopEngine();
 
         double before = testSaab.getX();
 
@@ -273,7 +275,7 @@ public class TestSaab {
     @Test
     public void gettersAndSettersTestOfGetNumberOfDoors(){
 
-        assertTrue(testSaab.getNrDoors() != testSaab2.getNrDoors() );
+        assertTrue(testSaab.getNrDoors() == testSaab2.getNrDoors() );
 
     }
 
