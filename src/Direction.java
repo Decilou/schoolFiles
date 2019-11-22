@@ -1,5 +1,5 @@
 /**
- * This is used to tell the car what direction it is facing.
+ * This is used to tell the object what direction it is facing.
  */
 
 public enum  Direction {

@@ -11,6 +11,8 @@ public class AngledFlatbed extends Flatbed {
         this.parent = parent;
     }
 
+    //-------------------- METHODS --------------------
+
     /**
      * Tips the flatbeds angle if the flatbed is within accepted parameters.
      * @param increase

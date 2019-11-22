@@ -2,18 +2,17 @@ import java.awt.*;
 
 public abstract class Vehicle implements IMovable {
 
-    private int nrDoors; // Number of doors of the vehicle
+    private final int nrDoors; // Number of doors of the vehicle
     private double enginePower; // Engine power of the vehicle
     private double currentSpeed; // The current speed of the vehicle
     private Color color; // Color of the vehicle
-    private String modelName; // The model name
+    private final String modelName; // The model name
     private Direction currentDirection; //Current direction
     private double x; // Position variable
     private double y; // Position variable
-
-    private int length;
-    private int width;
-    private int weight;
+    private final int length; // Length of the vehicle
+    private final int width; // Width of the vehicle
+    private int weight; // Weight of the vehicle
 
     public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
         this.nrDoors = nrDoors;

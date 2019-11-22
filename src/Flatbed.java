@@ -1,9 +1,13 @@
+/**
+ * Class for
+ */
+
 public abstract class Flatbed {
-    private final int length;
-    private final int width;
-    private final int weight;
-    private final int maxLoadableWeight;
-    private int currentLoadedWeight;
+    private final int length; // The length of the flatbed
+    private final int width; // The width of the flatbed
+    private final int weight; // the weight of the flatbed itself when unloaded.
+    private final int maxLoadableWeight; // The max weight the flatbed can take.
+    private int currentLoadedWeight; // The current weight of the load on the flatbed.
 
     public Flatbed(int length, int width, int weight, int maxLoadableWeight) {
         this.length = length;
@@ -18,6 +22,8 @@ public abstract class Flatbed {
         weight = 453;
         maxLoadableWeight = 21772;
     }
+
+    //-------------------- GETTERS & SETTERS --------------------
 
     public int getLength() {
         return length;

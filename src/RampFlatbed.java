@@ -11,11 +11,11 @@ import java.util.Deque;
  */
 
 public class RampFlatbed extends Flatbed {
-    private CarTransporter parent;
-    private OpenStatus rampStatus;
-    private int currentLoadedLength;
-    private final int maxLoadedLength;
-    private Deque<Car> loadedCarsStack = new ArrayDeque<>();
+    private CarTransporter parent; // Information from the transporter truck that pulls the flatbed
+    private OpenStatus rampStatus; // The status of the ramp. It can be either open or closed.
+    private int currentLoadedLength; // The sum of the length of all loaded objects.
+    private final int maxLoadedLength; //the maximum length that the flatbed can take.
+    private Deque<Car> loadedCarsStack = new ArrayDeque<>(); //A stack of the cars that are loaded on the flatbed.
 
     public RampFlatbed(CarTransporter parent) {
         super();
@@ -23,6 +23,8 @@ public class RampFlatbed extends Flatbed {
         maxLoadedLength = getLength();
         rampStatus = OpenStatus.CLOSED;
     }
+
+    //-------------------- METHODS --------------------
 
     /**
      * Load object onto flatbed if all conditions are valid.
@@ -152,6 +154,8 @@ public class RampFlatbed extends Flatbed {
     private boolean isMaxWidthReached(int objectWidth) {
         return (objectWidth >= this.getWidth());
     }
+
+    //-------------------- GETTERS & SETTERS --------------------
 
     public OpenStatus getRampStatus() {
         return rampStatus;
