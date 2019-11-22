@@ -17,8 +17,8 @@ public class TestCarWorkshop {
     }
 
     @Test
-    public void currentNumberOfCars_shouldBeSix() {
-        assertTrue(carWorkshop.currentNumberOfCars() == 6);
+    public void currentNumberOfCars_shouldBeZero() {
+        assertTrue(carWorkshop.currentNumberOfCars() == 0);
     }
 
     @Test
