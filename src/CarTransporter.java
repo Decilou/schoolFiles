@@ -9,13 +9,13 @@ public class CarTransporter extends Truck {
     private RampFlatbed rampFlatbed; // The flatbed with a ramp.
     private final int maxWeight = 40000; // The max weight the truck can pull.
 
-    public CarTransporter(double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
-        super(enginePower, color, modelName, currentDirection, length, width, weight);
+    public CarTransporter(Color color,Direction currentDirection) {
+        super(500, color, "Car transporter", currentDirection, 593, 255, 18000);
         rampFlatbed = new RampFlatbed(this);
     }
 
-    public CarTransporter(double enginePower, Color color, String modelName, int length, int width, int weight) {
-        super(enginePower, color, modelName, length, width, weight);
+    public CarTransporter(Color color) {
+        super(500, color, "Car transporter", 593, 255, 18000);
         rampFlatbed = new RampFlatbed(this);
     }
 
