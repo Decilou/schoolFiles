@@ -42,7 +42,7 @@ public class TestCar {
     }
 
     @Test
-    public void decrementSpeedTestThatTheSpeedDecreases () {
+    public void decrementSpeedTestThatTheSpeedDecreases() {
 
         testSaab.gas(1);
 
@@ -92,14 +92,14 @@ public class TestCar {
     // -------------------- MOVE --------------------
 
     @Test
-    public void moveTestIfCarIsFacingRIGHT () {
+    public void moveTestIfCarIsFacingRIGHT() {
 
         assertTrue(testVolvo.getCurrentDirection() == Direction.RIGHT);
 
     }
 
     @Test
-    public void moveTestIfMethodDoesNothingWhenEngineIsOf () {
+    public void moveTestIfMethodDoesNothingWhenEngineIsOf() {
 
         double before = testVolvo.getX();
 
@@ -112,7 +112,7 @@ public class TestCar {
     }
 
     @Test
-    public void moveTestIfCarMovesRIGHT () {
+    public void moveTestIfCarMovesRIGHT() {
 
         double before = testVolvo.getX();
 
@@ -127,7 +127,7 @@ public class TestCar {
     }
 
     @Test
-    public void moveTestIfCarMovesLEFT () {
+    public void moveTestIfCarMovesLEFT() {
 
         testVolvo = new Volvo240(Color.red, Direction.LEFT);
 
@@ -144,7 +144,7 @@ public class TestCar {
     }
 
     @Test
-    public void moveTestIfCarMovesUP () {
+    public void moveTestIfCarMovesUP() {
 
         testVolvo.turnLeft();
 
@@ -161,7 +161,7 @@ public class TestCar {
     }
 
     @Test
-    public void moveTestIfCarMovesDOWN () {
+    public void moveTestIfCarMovesDOWN() {
 
         testVolvo.turnRight();
 
@@ -180,7 +180,7 @@ public class TestCar {
     // -------------------- TURN RIGHT --------------------
 
     @Test
-    public void turnRightTestDirectionChange () {
+    public void turnRightTestDirectionChange() {
 
         testSaab.turnRight();
 
@@ -204,7 +204,7 @@ public class TestCar {
     // -------------------- TURN LEFT --------------------
 
     @Test
-    public void turnLeftTestDirectionChange () {
+    public void turnLeftTestDirectionChange() {
 
         testSaab.turnLeft();
 
@@ -228,7 +228,7 @@ public class TestCar {
     // -------------------- SPEED FACTOR --------------------
 
     @Test
-    public void turnLeftTestIfSaabTurboOnChangesSpeedFactor () {
+    public void turnLeftTestIfSaabTurboOnChangesSpeedFactor() {
 
         double before = testSaab.speedFactor();
 
@@ -241,7 +241,7 @@ public class TestCar {
     }
 
     @Test
-    public void turnLeftTestIfSaabTurboOffChangesSpeedFactor () {
+    public void turnLeftTestIfSaabTurboOffChangesSpeedFactor() {
 
         testSaab.setTurboOn();
 
@@ -266,16 +266,16 @@ public class TestCar {
     // -------------------- GETTERS AND SETTERS --------------------
 
     @Test
-    public void gettersAndSettersTestOfGetColor (){
+    public void gettersAndSettersTestOfGetColor() {
 
-        assertTrue(testVolvo.getColor() != testVolvo2.getColor() );
+        assertTrue(testVolvo.getColor() != testVolvo2.getColor());
 
     }
 
     @Test
-    public void gettersAndSettersTestOfGetNumberOfDoors(){
+    public void gettersAndSettersTestOfGetNumberOfDoors() {
 
-        assertTrue(testVolvo.getNrDoors() != testVolvo2.getNrDoors() );
+        assertTrue(testVolvo.getNrDoors() != testVolvo2.getNrDoors());
 
     }
 
@@ -285,12 +285,6 @@ public class TestCar {
         assertTrue(testVolvo.toString().contains("volvo"));
 
     }*/
-
-
-
-
-
-
 
 
 }

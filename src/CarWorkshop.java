@@ -7,7 +7,7 @@ public class CarWorkshop<T extends Car> {
     //TODO: Lista för cars.
     //TODO: JavaDoc och Tester för alla metoder.
 
-    private List <T> carsInWorkshop; // List of all the cars that currently are in the workshop
+    private List<T> carsInWorkshop; // List of all the cars that currently are in the workshop
     private final int maxNumberOfCars; // The max amount of cars that the workshop can hold.
 
     public CarWorkshop(int maxNumberOfCars) {
@@ -19,10 +19,11 @@ public class CarWorkshop<T extends Car> {
 
     /**
      * Method for checking if the workshop is full.
+     *
      * @return
      */
 
-    public boolean isFull (){
+    public boolean isFull() {
 
         return (carsInWorkshop.size() >= maxNumberOfCars);
 
@@ -30,14 +31,15 @@ public class CarWorkshop<T extends Car> {
 
     /**
      * Method for putting cars in the workshop.
+     *
      * @param carToLoad is the car that we are trying to put in the workshop.
      */
 
-    public void loadCarIntoWorkshop (T carToLoad){
+    public void loadCarIntoWorkshop(T carToLoad) {
 
-        if (!isFull()){
+        if (!isFull()) {
             carsInWorkshop.add(carToLoad);
-        } else{
+        } else {
             System.out.println("There is no space left in the workshop!");
             throw new IllegalCallerException("There is no space left in the workshop.");
         }
@@ -46,13 +48,14 @@ public class CarWorkshop<T extends Car> {
 
     /**
      * A method for taking cars out from the workshop.
+     *
      * @param carToUnload the car we are searching for in the workshop.
      * @return if the car was present in the workshop it is what we will get.
      */
 
-    public T unloadCarFromWorkshop (T carToUnload) {
+    public T unloadCarFromWorkshop(T carToUnload) {
 
-        if (!carsInWorkshop.isEmpty() && carsInWorkshop.contains(carToUnload)){
+        if (!carsInWorkshop.isEmpty() && carsInWorkshop.contains(carToUnload)) {
             carsInWorkshop.remove(carToUnload);
             return carToUnload;
         } else {

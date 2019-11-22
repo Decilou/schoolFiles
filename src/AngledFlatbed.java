@@ -15,11 +15,12 @@ public class AngledFlatbed extends Flatbed {
 
     /**
      * Tips the flatbeds angle if the flatbed is within accepted parameters.
+     *
      * @param increase
      */
 
-    public void tipFlatbed(int increase){
-        if(0 <= angle && angle <= 70 && !parent.isMoving()){
+    public void tipFlatbed(int increase) {
+        if (0 <= angle && angle <= 70 && !parent.isMoving()) {
             angle = getAngle() + increase;
         }
 
@@ -27,11 +28,12 @@ public class AngledFlatbed extends Flatbed {
 
     /**
      * Lowers the flatbeds angle if the flatbed is within accepted parameters.
+     *
      * @param decrease
      */
 
-    public void lowerFlatbed(int decrease){
-        if(0 <= angle && angle <= 70 && !parent.isMoving()){
+    public void lowerFlatbed(int decrease) {
+        if (0 <= angle && angle <= 70 && !parent.isMoving()) {
             angle = getAngle() - decrease;
         }
     }

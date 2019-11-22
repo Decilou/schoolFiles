@@ -9,7 +9,7 @@ public class CarTransporter extends Truck {
     private RampFlatbed rampFlatbed; // The flatbed with a ramp.
     private final int maxWeight = 40000; // The max weight the truck can pull.
 
-    public CarTransporter(double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight){
+    public CarTransporter(double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
         super(enginePower, color, modelName, currentDirection, length, width, weight);
         rampFlatbed = new RampFlatbed(this);
     }
@@ -21,9 +21,9 @@ public class CarTransporter extends Truck {
 
     @Override
     public void move() {
-        if (rampFlatbed.getRampStatus() == OpenStatus.CLOSED && rampFlatbed.getCurrentLoadedWeight()+rampFlatbed.getWeight() <= maxWeight) {
+        if (rampFlatbed.getRampStatus() == OpenStatus.CLOSED && rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() <= maxWeight) {
             super.move();
-        } else if (rampFlatbed.getCurrentLoadedWeight()+rampFlatbed.getWeight() > maxWeight) {
+        } else if (rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() > maxWeight) {
             System.out.println("Cannot pull flatbed, it is too heavy!");
             throw new IllegalCallerException("Cannot pull flatbed, it is too heavy.");
         } else {
@@ -31,5 +31,5 @@ public class CarTransporter extends Truck {
             throw new IllegalCallerException("Cannot move when the ramp is down.");
         }
     }
-    
+
 }

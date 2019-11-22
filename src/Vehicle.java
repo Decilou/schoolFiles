@@ -32,7 +32,7 @@ public abstract class Vehicle implements IMovable {
 
     //-------------------- METHODS --------------------
 
-    public boolean isMoving (){
+    public boolean isMoving() {
         return (currentSpeed != 0);
     }
 
@@ -52,6 +52,7 @@ public abstract class Vehicle implements IMovable {
 
     /**
      * Method for increasing current speed.
+     *
      * @param amount amount to increase with.
      */
     private void incrementSpeed(double amount) {
@@ -60,6 +61,7 @@ public abstract class Vehicle implements IMovable {
 
     /**
      * Method for decreasing current speed. If the speed is zero, do nothing.
+     *
      * @param amount amount to decrease with.
      */
     private void decrementSpeed(double amount) {
@@ -69,20 +71,22 @@ public abstract class Vehicle implements IMovable {
 
     /**
      * Method that increase speed according to amount.
+     *
      * @param amount can be [0, 1]
      */
     public void gas(double amount) {
-        if(0 <= amount && amount <= 1){
+        if (0 <= amount && amount <= 1) {
             incrementSpeed(amount);
         }
     }
 
     /**
      * Method that decrease speed according to amount.
+     *
      * @param amount can be [0, 1]
      */
     public void brake(double amount) {
-        if(0 <= amount && amount <= 1){
+        if (0 <= amount && amount <= 1) {
             decrementSpeed(amount);
         }
     }
@@ -90,17 +94,17 @@ public abstract class Vehicle implements IMovable {
     /**
      * Method that moves the vehicle in the direction it's facing.
      */
-    public void move(){
+    public void move() {
         if (currentSpeed != 0) {
             switch (getCurrentDirection()) {
                 case RIGHT:
                     setX(getCurrentSpeed() + getX());
                     break;
                 case LEFT:
-                    setX(getCurrentSpeed()*-1 + getX());
+                    setX(getCurrentSpeed() * -1 + getX());
                     break;
                 case UP:
-                    setY(getCurrentSpeed()*-1 + getY());
+                    setY(getCurrentSpeed() * -1 + getY());
                     break;
                 case DOWN:
                     setY(getCurrentSpeed() + getY());
@@ -112,7 +116,7 @@ public abstract class Vehicle implements IMovable {
     /**
      * Method that rotates the vehicle clockwise.
      */
-    public void turnRight(){
+    public void turnRight() {
         switch (getCurrentDirection()) {
             case UP:
                 setCurrentDirection(Direction.RIGHT);

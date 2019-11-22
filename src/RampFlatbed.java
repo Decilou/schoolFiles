@@ -57,19 +57,20 @@ public class RampFlatbed extends Flatbed {
 
     /**
      * Unload car and update its x, y, direction.
+     *
      * @param car
      */
-    public void placeUnloadedObjectInWorld (Car car) {
+    public void placeUnloadedObjectInWorld(Car car) {
 
-        switch (parent.getCurrentDirection()){
+        switch (parent.getCurrentDirection()) {
             case UP:
-                car.setY(parent.getY()-10);
+                car.setY(parent.getY() - 10);
             case RIGHT:
-                car.setX(parent.getX()-10);
+                car.setX(parent.getX() - 10);
             case DOWN:
-                car.setY(parent.getY()+10);
+                car.setY(parent.getY() + 10);
             case LEFT:
-                car.setX(parent.getX()+10);
+                car.setX(parent.getX() + 10);
         }
     }
 
