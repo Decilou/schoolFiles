@@ -1,5 +1,5 @@
 /**
- * Class for a kind of flatbed.
+ * Class for an angled flatbed. Has methods for tipping or lowering the flatbed.
  */
 
 public class AngledFlatbed extends Flatbed {
@@ -14,27 +14,24 @@ public class AngledFlatbed extends Flatbed {
     //-------------------- METHODS --------------------
 
     /**
-     * Tips the flatbeds angle if the flatbed is within accepted parameters.
+     * Tips the flatbeds angle by 1 degree if the flatbed is within accepted parameters.
      *
-     * @param increase
      */
 
-    public void tipFlatbed(int increase) {
-        if (0 <= angle && angle <= 70 && !parent.isMoving()) {
-            angle = getAngle() + increase;
+    public void tipFlatbed() {
+        if (0 <= angle && angle + 1 <= 70 && !parent.isMoving()) {
+            angle = getAngle() + 1;
         }
-
     }
 
     /**
      * Lowers the flatbeds angle if the flatbed is within accepted parameters.
      *
-     * @param decrease
      */
 
-    public void lowerFlatbed(int decrease) {
-        if (0 <= angle && angle <= 70 && !parent.isMoving()) {
-            angle = getAngle() - decrease;
+    public void lowerFlatbed() {
+        if (0 <= angle - 1 && angle <= 70 && !parent.isMoving()) {
+            angle = getAngle() - 1;
         }
     }
 

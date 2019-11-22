@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * A class for a kind of Truck that can transport cars.
+ * A class for a kind of Truck that can transport cars on its flatbed.
  */
 
 public class CarTransporter extends Truck {

@@ -8,11 +8,13 @@ import static org.junit.Assert.assertTrue;
 public class TestCarWorkshop {
 
     private Volvo240 volvo240;
+    private Saab95 saab95;
     private CarWorkshop<Volvo240> carWorkshop;
 
     @Before
     public void init() {
         volvo240 = new Volvo240(Color.red);
+        saab95 = new Saab95(Color.black);
         carWorkshop = new CarWorkshop<>(6);
     }
 
@@ -38,5 +40,4 @@ public class TestCarWorkshop {
 
         assertTrue(carWorkshop.unloadCarFromWorkshop(volvo240) == volvo240);
     }
-
 }
