@@ -20,13 +20,4 @@ public class CarTransporter extends Truck {
             throw new IllegalCallerException("Cannot move when the ramp is down.");
         }
     }
-
-    public void loadUpCar () {
-
-
-    }
-
-
-
-
 }
