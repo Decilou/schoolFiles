@@ -1,10 +1,9 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-/*TODO: Method for unloading car.
-TODO: Loaded car's position is according to CarTransporter if loaded.
-TODO: Add final on all instance variable that should be immutable.
- */
+
+//TODO: Add final on all instance variable that should be immutable.
+
 
 /**
  * Class for a flatbed with an attached ramp at the end.
@@ -42,12 +41,33 @@ public class RampFlatbed extends Flatbed {
      *
      * @return car that was unloaded
      */
-    public Car unloadFlatbed() {
+    public Car unloadObjectFromFlatbed() {
         if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty()) {
-            return loadedCarsStack.poll();
+            Car unloadedCar = loadedCarsStack.pop();
+            unloadedCar.setCurrentDirection(parent.getCurrentDirection());
+            placeUnloadedObjectInWorld(unloadedCar);
+            return unloadedCar;
         } else {
             System.out.println("There are no cars left!");
             throw new IllegalCallerException("There are no cars left!");
+        }
+    }
+
+    /**
+     * Unload car and update its x, y, direction.
+     * @param car
+     */
+    public void placeUnloadedObjectInWorld (Car car) {
+
+        switch (parent.getCurrentDirection()){
+            case UP:
+                car.setY(parent.getY()-10);
+            case RIGHT:
+                car.setX(parent.getX()-10);
+            case DOWN:
+                car.setY(parent.getY()+10);
+            case LEFT:
+                car.setX(parent.getX()+10);
         }
     }
 

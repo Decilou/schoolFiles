@@ -179,7 +179,7 @@ public abstract class Vehicle implements IMovable {
         return currentDirection;
     }
 
-    private void setCurrentDirection(Direction currentDirection) {
+    public void setCurrentDirection(Direction currentDirection) {
         this.currentDirection = currentDirection;
     }
 
@@ -187,7 +187,7 @@ public abstract class Vehicle implements IMovable {
         return x;
     }
 
-    private void setX(double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -195,7 +195,7 @@ public abstract class Vehicle implements IMovable {
         return y;
     }
 
-    private void setY(double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
