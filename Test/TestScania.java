@@ -111,7 +111,7 @@ public class TestScania {
 
         double before = testScania.getX();
 
-        testScania.getAngledFlatbed().tipFlatbed(1);
+        testScania.getAngledFlatbed().tipFlatbed();
 
         testScania.move();
 

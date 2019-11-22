@@ -3,6 +3,8 @@ import org.junit.Test;
 
 import java.awt.*;
 
+import static org.junit.Assert.assertTrue;
+
 public class TestAngledFlatbed {
 
 
@@ -18,10 +20,49 @@ public class TestAngledFlatbed {
 
         int before = testScania.getAngledFlatbed().getAngle();
 
-        testScania.getAngledFlatbed().tipFlatbed(1);
+        testScania.getAngledFlatbed().tipFlatbed();
 
         int after = testScania.getAngledFlatbed().getAngle();
 
+        assertTrue(before < after);
+
+    }
+
+    @Test
+    public void TestIfAngleDecreases (){
+
+        testScania.getAngledFlatbed().tipFlatbed();
+
+        int before = testScania.getAngledFlatbed().getAngle();
+
+        testScania.getAngledFlatbed().lowerFlatbed();
+
+        int after = testScania.getAngledFlatbed().getAngle();
+
+        assertTrue(before > after);
+
+    }
+
+    @Test
+    public void TestIfAngleCanChangeWhenTruckIsMoving() {
+        int before = testScania.getAngledFlatbed().getAngle();
+
+        testScania.gas(1);
+
+        int after = testScania.getAngledFlatbed().getAngle();
+
+        assertTrue(before == after);
+    }
+
+    @Test
+    public void TestIfAngleCanChangeOutsideOfParameters() {
+        int before = testScania.getAngledFlatbed().getAngle();
+
+        testScania.getAngledFlatbed().lowerFlatbed();
+
+        int after = testScania.getAngledFlatbed().getAngle();
+
+        assertTrue(before == after);
     }
 
 }
