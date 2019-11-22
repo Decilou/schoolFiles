@@ -17,7 +17,26 @@ public class TestCarWorkshop {
     }
 
     @Test
-    public void numberOfCarsShouldBeMaxNumberOfCars() {
-
+    public void currentNumberOfCars_shouldBeSix() {
+        assertTrue(carWorkshop.currentNumberOfCars() == 6);
     }
+
+    @Test
+    public void isFull_shouldBeFalse(){
+        assertTrue(!carWorkshop.isFull());
+    }
+
+    @Test
+    public void loadCarIntoWorkshop_carShouldBeInList(){
+        carWorkshop.loadCarIntoWorkshop(volvo240);
+        assertTrue(!carWorkshop.isEmpty());
+    }
+
+    @Test
+    public void unloadCarFromWorkshop_sameCarAsLoadedShouldBeUnloaded(){
+        carWorkshop.loadCarIntoWorkshop(volvo240);
+
+        assertTrue(carWorkshop.unloadCarFromWorkshop(volvo240) == volvo240);
+    }
+
 }

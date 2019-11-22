@@ -22,11 +22,12 @@ public class CarWorkshop<T extends Car> {
      *
      * @return
      */
-
     public boolean isFull() {
-
         return (carsInWorkshop.size() >= maxNumberOfCars);
+    }
 
+    public boolean isEmpty(){
+        return (carsInWorkshop.isEmpty());
     }
 
     /**
@@ -43,7 +44,10 @@ public class CarWorkshop<T extends Car> {
             System.out.println("There is no space left in the workshop!");
             throw new IllegalCallerException("There is no space left in the workshop.");
         }
+    }
 
+    public int currentNumberOfCars() {
+        return (carsInWorkshop.size());
     }
 
     /**
