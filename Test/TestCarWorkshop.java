@@ -13,4 +13,9 @@ public class TestCarWorkshop {
         volvo240 = new Volvo240(Color.red);
         carWorkshop = new CarWorkshop<>(6);
     }
+
+    @Test
+    public void numberOfCarsShouldBeMaxNumberOfCars(){
+
+    }
 }
