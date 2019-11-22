@@ -14,6 +14,12 @@ public class Scania extends Truck {
         angledFlatbed = new AngledFlatbed(this);
     }
 
+    public Scania(Color color) {
+        super(500, color, "Scania", 593, 255, 18000);
+        angledFlatbed = new AngledFlatbed(this);
+    }
+
+
     /**
      * A method for moving the truck when it can move, witch is dependent on the angle of the flatbed.
      */
@@ -24,11 +30,18 @@ public class Scania extends Truck {
             super.move();
         } else if (angledFlatbed.getCurrentLoadedWeight() + angledFlatbed.getWeight() > maxWeightToPull) {
             System.out.println("Cannot pull flatbed, it is too heavy!");
-            throw new IllegalCallerException("Cannot pull flatbed, it is too heavy.");
         } else {
             System.out.println("Cannot move when flatbed is up!");
-            throw new IllegalCallerException("Cannot move when flatbed is up.");
         }
     }
 
+    //-------------------- GETTERS & SETTERS --------------------
+
+    public AngledFlatbed getAngledFlatbed() {
+        return angledFlatbed;
+    }
+
+    public int getMaxWeightToPull() {
+        return maxWeightToPull;
+    }
 }

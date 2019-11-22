@@ -24,10 +24,13 @@ public abstract class Vehicle implements IMovable {
         x = 10;
         y = 10;
         stopEngine();
-
         this.length = length;
         this.width = width;
         this.weight = weight;
+    }
+
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int weight) {
+        this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, weight);
     }
 
     //-------------------- METHODS --------------------

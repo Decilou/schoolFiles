@@ -11,6 +11,10 @@ public abstract class Truck extends Vehicle {
         super(2, enginePower, color, modelName, currentDirection, length, width, weight);
     }
 
+    public Truck(double enginePower, Color color, String modelName, int length, int width, int weight) {
+        super(2, enginePower, color, modelName, Direction.RIGHT, length, width, weight);
+    }
+
     public double speedFactor() {
         return getEnginePower() * 0.01;
     }

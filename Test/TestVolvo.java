@@ -226,44 +226,15 @@ public class TestVolvo {
     }
 
     // -------------------- SPEED FACTOR --------------------
-/*
-    @Test
-    public void speedFactorTestIfSaabTurboOnChangesSpeedFactor () {
-
-        double before = testVolvo.speedFactor();
-
-        testVolvo.setTurboOn();
-
-        double after = testVolvo.speedFactor();
-
-        assertTrue(before < after);
-
-    }
+    /*
 
     @Test
-    public void speedFactorTestIfSaabTurboOffChangesSpeedFactor () {
-
-        testVolvo.setTurboOn();
-
-        double before = testVolvo.speedFactor();
-
-        testVolvo.setTurboOff();
-
-
-        double after = testVolvo.speedFactor();
-
-        assertTrue(before > after);
-
-    }
-
- */
-
-/*    @Test
     public void speedFactorTestIfEnginePowerChangesSpeedFactor () {
 
         assertTrue(testVolvo.speedFactor() > testVolvo.speedFactor());
 
-    }*/
+    }
+    */
 
     // -------------------- GETTERS AND SETTERS --------------------
 

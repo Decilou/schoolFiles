@@ -146,7 +146,7 @@ public class TestSaab {
     @Test
     public void moveTestIfCarMovesUP () {
 
-        testSaab.turnLeft();
+        testSaab = new Saab95(Color.red, Direction.UP);
 
         double before = testSaab.getY();
 
@@ -163,7 +163,7 @@ public class TestSaab {
     @Test
     public void moveTestIfCarMovesDOWN () {
 
-        testSaab.turnRight();
+        testSaab = new Saab95(Color.red, Direction.DOWN);
 
         double before = testSaab.getY();
 
@@ -255,13 +255,6 @@ public class TestSaab {
         assertTrue(before > after);
 
     }
-
-/*    @Test
-    public void speedFactorTestIfEnginePowerChangesSpeedFactor () {
-
-        assertTrue(testVolvo.speedFactor() > testVolvo.speedFactor());
-
-    }*/
 
     // -------------------- GETTERS AND SETTERS --------------------
 

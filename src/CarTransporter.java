@@ -14,6 +14,11 @@ public class CarTransporter extends Truck {
         rampFlatbed = new RampFlatbed(this);
     }
 
+    public CarTransporter(double enginePower, Color color, String modelName, int length, int width, int weight) {
+        super(enginePower, color, modelName, length, width, weight);
+        rampFlatbed = new RampFlatbed(this);
+    }
+
 
     /**
      * A method for moving the transporter when it can move, witch is when the ramp is closed.

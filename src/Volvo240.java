@@ -16,7 +16,6 @@ public class Volvo240 extends Car {
     }
 
 
-
     /**
      * Calculates and returns the speed factor.
      * @return speed factor of the car
