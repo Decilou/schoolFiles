@@ -5,7 +5,7 @@
 public class AngledFlatbed extends Flatbed {
     private int angle = 0; // The flatbeds angle. Starts at 0.
 
-    public AngledFlatbed(Scania parent) {
+    public AngledFlatbed() {
         super();
     }
 
@@ -36,8 +36,8 @@ public class AngledFlatbed extends Flatbed {
 
     //-------------------- GETTERS & SETTERS --------------------
 
-
     public int getAngle() {
         return angle;
     }
+
 }

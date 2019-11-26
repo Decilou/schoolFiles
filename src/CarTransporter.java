@@ -7,16 +7,32 @@ import java.awt.*;
 public class CarTransporter extends Truck {
 
     private RampFlatbed rampFlatbed; // The flatbed with a ramp.
-    private final int maxWeight = 40000; // The max weight the truck can pull.
+    private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
     public CarTransporter(Color color,Direction currentDirection) {
         super(500, color, "Car transporter", currentDirection, 593, 255, 18000);
-        rampFlatbed = new RampFlatbed(this);
+        rampFlatbed = new RampFlatbed();
     }
 
     public CarTransporter(Color color) {
         super(500, color, "Car transporter", 593, 255, 18000);
-        rampFlatbed = new RampFlatbed(this);
+        rampFlatbed = new RampFlatbed();
+    }
+
+    public void openRamp() {
+        if (!this.isMoving()) {
+            rampFlatbed.openRamp();
+        } else {
+            System.out.println("Truck is moving! Cannot open ramp!");
+        }
+    }
+
+    public void closeRamp() {
+        if (!this.isMoving()) {
+            rampFlatbed.closeRamp();
+        } else {
+            System.out.println("Truck is moving! Cannot close ramp!");
+        }
     }
 
 
@@ -27,14 +43,12 @@ public class CarTransporter extends Truck {
 
     @Override
     public void move() {
-        if (rampFlatbed.getRampStatus() == OpenStatus.CLOSED && rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() <= maxWeight) {
+        if (rampFlatbed.getRampStatus() == OpenStatus.CLOSED && rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() <= maxWeightToPull) {
             super.move();
-        } else if (rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() > maxWeight) {
+        } else if (rampFlatbed.getCurrentLoadedWeight() + rampFlatbed.getWeight() > maxWeightToPull) {
             System.out.println("Cannot pull flatbed, it is too heavy!");
-            throw new IllegalCallerException("Cannot pull flatbed, it is too heavy.");
         } else {
             System.out.println("Cannot move when the ramp is down!");
-            throw new IllegalCallerException("Cannot move when the ramp is down.");
         }
     }
 
@@ -43,4 +57,11 @@ public class CarTransporter extends Truck {
         rampFlatbed.placeUnloadedObjectInWorld(car, getX(), getY(), getCurrentDirection());
     }
 
+    public RampFlatbed getRampFlatbed() {
+        return rampFlatbed;
+    }
+
+    public int getMaxWeightToPull() {
+        return maxWeightToPull;
+    }
 }

@@ -14,4 +14,6 @@ public abstract class Car extends Vehicle {
     public Car(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int weight) {
         super(nrDoors,enginePower,color,modelName,Direction.RIGHT, length, width, weight);
     }
+
+
 }

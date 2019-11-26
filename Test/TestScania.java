@@ -12,6 +12,8 @@ public class TestScania {
     @Before
     public void init(){
         testScania = new Scania(Color.blue);
+
+        testScania.startEngine();
     }
 
 
@@ -111,7 +113,11 @@ public class TestScania {
 
         double before = testScania.getX();
 
-        testScania.getAngledFlatbed().tipFlatbed();
+        testScania.stopEngine();
+
+        testScania.tipFlatbed();
+
+        testScania.startEngine();
 
         testScania.move();
 
@@ -128,15 +134,12 @@ public class TestScania {
 
         testScania.getAngledFlatbed().setCurrentLoadedWeight(testScania.getMaxWeightToPull());
 
+        testScania.move();
+
         double after = testScania.getX();
 
         assertTrue(after == before);
 
     }
-
-
-
-
-
 
 }

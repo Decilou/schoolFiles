@@ -13,6 +13,8 @@ public abstract class Vehicle implements IMovable {
     private final int length; // Length of the vehicle
     private final int width; // Width of the vehicle
     private int weight; // Weight of the vehicle
+    public boolean isLoaded;
+
 
     public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
         this.nrDoors = nrDoors;
@@ -27,6 +29,8 @@ public abstract class Vehicle implements IMovable {
         this.length = length;
         this.width = width;
         this.weight = weight;
+        isLoaded  = false;
+
     }
 
     public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int weight) {
@@ -34,6 +38,16 @@ public abstract class Vehicle implements IMovable {
     }
 
     //-------------------- METHODS --------------------
+
+    //TODO: Add that the car knows it's loaded (CHECK). If loaded, stopEngine (CHECK). Block start engine if loaded (CHECK).
+    // Method for updating x, y.
+
+    public void loadOnTransporter () {
+        if (!isLoaded && !isMoving()){
+            isLoaded = true;
+            stopEngine();
+        }
+    }
 
     public boolean isMoving() {
         return (currentSpeed != 0);
@@ -43,7 +57,9 @@ public abstract class Vehicle implements IMovable {
      * Method that start the engine of the vehicle. Current speed set to 0.1.
      */
     public void startEngine() {
-        currentSpeed = 0.1;
+        if (!isLoaded) {
+            currentSpeed = 0.1;
+        }
     }
 
     /**

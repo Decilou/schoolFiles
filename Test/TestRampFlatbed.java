@@ -2,21 +2,24 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
+import java.util.Random;
 
 import static org.junit.Assert.assertTrue;
 
 public class TestRampFlatbed {
 
-    private CarTransporter testTransporter;
+    private RampFlatbed testRamp;
 
     @Before
     public void init(){
-        testTransporter = new CarTransporter(Color.blue);
+        testRamp = new RampFlatbed();
     }
 
     @Test
     public void test (){
 
     }
+
+
 
 }

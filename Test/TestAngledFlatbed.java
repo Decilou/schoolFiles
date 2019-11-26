@@ -8,21 +8,21 @@ import static org.junit.Assert.assertTrue;
 public class TestAngledFlatbed {
 
 
-    private Scania testScania;
+    private AngledFlatbed testFlatbed;
 
     @Before
     public void init(){
-        testScania = new Scania(Color.blue);
+        testFlatbed = new AngledFlatbed();
     }
 
     @Test
     public void TestIfAngleIncreases (){
 
-        int before = testScania.getAngledFlatbed().getAngle();
+        int before = testFlatbed.getAngle();
 
-        testScania.getAngledFlatbed().tipFlatbed();
+        testFlatbed.tipFlatbed();
 
-        int after = testScania.getAngledFlatbed().getAngle();
+        int after = testFlatbed.getAngle();
 
         assertTrue(before < after);
 
@@ -31,36 +31,25 @@ public class TestAngledFlatbed {
     @Test
     public void TestIfAngleDecreases (){
 
-        testScania.getAngledFlatbed().tipFlatbed();
+        testFlatbed.tipFlatbed();
 
-        int before = testScania.getAngledFlatbed().getAngle();
+        int before = testFlatbed.getAngle();
 
-        testScania.getAngledFlatbed().lowerFlatbed();
+        testFlatbed.lowerFlatbed();
 
-        int after = testScania.getAngledFlatbed().getAngle();
+        int after = testFlatbed.getAngle();
 
         assertTrue(before > after);
 
     }
 
     @Test
-    public void TestIfAngleCanChangeWhenTruckIsMoving() {
-        int before = testScania.getAngledFlatbed().getAngle();
-
-        testScania.gas(1);
-
-        int after = testScania.getAngledFlatbed().getAngle();
-
-        assertTrue(before == after);
-    }
-
-    @Test
     public void TestIfAngleCanChangeOutsideOfParameters() {
-        int before = testScania.getAngledFlatbed().getAngle();
+        int before = testFlatbed.getAngle();
 
-        testScania.getAngledFlatbed().lowerFlatbed();
+        testFlatbed.lowerFlatbed();
 
-        int after = testScania.getAngledFlatbed().getAngle();
+        int after = testFlatbed.getAngle();
 
         assertTrue(before == after);
     }

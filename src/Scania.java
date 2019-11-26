@@ -11,12 +11,12 @@ public class Scania extends Truck {
 
     public Scania(Color color, Direction currentDirection) {
         super(500, color, "Scania", currentDirection, 593, 255, 18000);
-        angledFlatbed = new AngledFlatbed(this);
+        angledFlatbed = new AngledFlatbed();
     }
 
     public Scania(Color color) {
         super(500, color, "Scania", 593, 255, 18000);
-        angledFlatbed = new AngledFlatbed(this);
+        angledFlatbed = new AngledFlatbed();
     }
 
 
@@ -58,5 +58,9 @@ public class Scania extends Truck {
 
     public int getMaxWeightToPull() {
         return maxWeightToPull;
+    }
+
+    public AngledFlatbed getAngledFlatbed() {
+        return angledFlatbed;
     }
 }

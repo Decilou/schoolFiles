@@ -18,7 +18,7 @@ public class RampFlatbed extends Flatbed {
     private final int maxLoadedLength; //the maximum length that the flatbed can take.
     private Deque<Car> loadedCarsStack = new ArrayDeque<>(); //A stack of the cars that are loaded on the flatbed.
 
-    public RampFlatbed(CarTransporter parent) {
+    public RampFlatbed() {
         super();
         maxLoadedLength = getLength();
         rampStatus = OpenStatus.CLOSED;
@@ -38,20 +38,22 @@ public class RampFlatbed extends Flatbed {
         }
     }
 
+
+
     /**
      * Unload object from flatbed if ramp is open and flatbed is not empty.
      *
      * @return car that was unloaded
      */
     public Car unloadObjectFromFlatbed() {
-        if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty()) {
+        if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty() ) {
             Car unloadedCar = loadedCarsStack.pop();
-            unloadedCar.setCurrentDirection(parent.getCurrentDirection());
-            placeUnloadedObjectInWorld(unloadedCar);
+            unloadedCar.setCurrentDirection(Direction.RIGHT);
+            placeUnloadedObjectInWorld(unloadedCar, unloadedCar.getX(), unloadedCar.getY(), unloadedCar.getCurrentDirection());
             return unloadedCar;
         } else {
             System.out.println("There are no cars left!");
-            throw new IllegalCallerException("There are no cars left!");
+            return null;
         }
     }
 
@@ -65,12 +67,17 @@ public class RampFlatbed extends Flatbed {
         switch (currentDirection) {
             case UP:
                 car.setY(y - 10);
+                car.setX(10);
             case RIGHT:
                 car.setX(x - 10);
+                car.setY(10);
             case DOWN:
                 car.setY(y + 10);
+                car.setX(10);
             case LEFT:
                 car.setX(x + 10);
+                car.setY(10);
+
         }
     }
 
@@ -81,8 +88,8 @@ public class RampFlatbed extends Flatbed {
      * @return true if location is valid for loading car
      */
     private boolean isLocationValid(Car car) {
-        double x = parent.getX();
-        double y = parent.getY();
+        double x = this.getX();
+        double y = this.getY();
 
         return (x - 10 < car.getX() && car.getX() < x + 10 && y - 10 < car.getY() && car.getY() < y + 10);
     }
@@ -94,19 +101,14 @@ public class RampFlatbed extends Flatbed {
      * @return true if directions match
      */
     private boolean isDirectionValid(Car car) {
-        return (parent.getCurrentDirection() == car.getCurrentDirection());
+        return (this.getCurrentDirection() == car.getCurrentDirection());
     }
 
     /**
      * Set ramp to open if flatbed is not moving. Else, throw exception.
      */
     public void openRamp() {
-        if (parent.getCurrentSpeed() == 0) {
-            rampStatus = OpenStatus.OPEN;
-        } else {
-            System.out.println("Truck is moving! Cannot open ramp!");
-            throw new IllegalCallerException("Cannot open ramp while vehicle is moving!");
-        }
+        rampStatus = OpenStatus.OPEN;
     }
 
     /**
