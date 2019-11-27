@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Deque;
 
 /**
  * A class for a kind of Truck that can transport cars on its flatbed.
@@ -35,6 +36,15 @@ public class CarTransporter extends Truck {
         }
     }
 
+    // TODO: Fundera lite över hur vi kan abstrahera detta upp till överliggande classer.
+    public void updatePositionForCarsInStack() {
+        Deque<Car> stack = rampFlatbed.getLoadedCarsStack();
+
+        for (Car c: stack){
+            c.updateTransportedVehicle(this);
+        }
+    }
+
 
     /**
      * A method for moving the transporter when it can move, witch is when the ramp is closed.
@@ -52,9 +62,11 @@ public class CarTransporter extends Truck {
         }
     }
 
-    //TODO: Fix the "where is car"-problem.
-    public void placeUnloadedObjectInWorld(Car car) {
-        rampFlatbed.placeUnloadedObjectInWorld(car, getX(), getY(), getCurrentDirection());
+    //TODO: delegering av unloading och loading?
+    public void unloadObjectFromFlatbed(Car car) {
+        rampFlatbed.unloadObjectFromFlatbed();
+
+
     }
 
     public RampFlatbed getRampFlatbed() {

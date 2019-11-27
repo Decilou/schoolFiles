@@ -1,4 +1,5 @@
 import java.awt.*;
+import static java.lang.System.out;
 
 public abstract class Vehicle implements IMovable {
 
@@ -13,7 +14,7 @@ public abstract class Vehicle implements IMovable {
     private final int length; // Length of the vehicle
     private final int width; // Width of the vehicle
     private int weight; // Weight of the vehicle
-    public boolean isLoaded;
+    private boolean isLoaded;
 
 
     public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
@@ -39,13 +40,53 @@ public abstract class Vehicle implements IMovable {
 
     //-------------------- METHODS --------------------
 
-    //TODO: Add that the car knows it's loaded (CHECK). If loaded, stopEngine (CHECK). Block start engine if loaded (CHECK).
-    // Method for updating x, y.
-
-    public void loadOnTransporter () {
-        if (!isLoaded && !isMoving()){
-            isLoaded = true;
+    //TODO: Få koll på hur transportören validers.
+    public void loadOnTransporter (Vehicle transporter) {
+        if (!isLoaded && !isMoving() && transporter.isValidToLoad(this)){
             stopEngine();
+            isLoaded = true;
+        }
+    }
+
+    public void unloadFromTransporter (){
+        if (isLoaded){
+            placeUnloadedVehicleInWorld();
+            isLoaded = false;
+        }
+    }
+
+    public void updateTransportedVehicle (Vehicle transporter) {
+
+        if (isLoaded){
+            this.setX(transporter.getX());
+            this.setY(transporter.getY());
+            this.setCurrentDirection(transporter.getCurrentDirection());
+        }
+    }
+
+
+    /**
+     * Unload vehicle and update its x or y.
+     *
+     */
+
+    //TODO: ISSUE. Public, andra kommer åt den. Hur stoppa det?
+    private void placeUnloadedVehicleInWorld() {
+
+        double y = getY();
+        double x = getX();
+
+        if (isLoaded) {
+            switch (this.getCurrentDirection()) {
+                case UP:
+                    setY(y + 10);
+                case RIGHT:
+                    setX(x - 10);
+                case DOWN:
+                    setY(y - 10);
+                case LEFT:
+                    setX(x + 10);
+            }
         }
     }
 
@@ -59,6 +100,8 @@ public abstract class Vehicle implements IMovable {
     public void startEngine() {
         if (!isLoaded) {
             currentSpeed = 0.1;
+        } else {
+            out.println("Can't start engine when being stored");
         }
     }
 
@@ -201,7 +244,7 @@ public abstract class Vehicle implements IMovable {
         return currentDirection;
     }
 
-    public void setCurrentDirection(Direction currentDirection) {
+    private void setCurrentDirection(Direction currentDirection) {
         this.currentDirection = currentDirection;
     }
 
@@ -209,7 +252,7 @@ public abstract class Vehicle implements IMovable {
         return x;
     }
 
-    public void setX(double x) {
+    private void setX(double x) {
         this.x = x;
     }
 
@@ -217,7 +260,7 @@ public abstract class Vehicle implements IMovable {
         return y;
     }
 
-    public void setY(double y) {
+    private void setY(double y) {
         this.y = y;
     }
 
@@ -231,6 +274,10 @@ public abstract class Vehicle implements IMovable {
 
     public int getWeight() {
         return weight;
+    }
+
+    public boolean isLoaded() {
+        return isLoaded;
     }
 
     @Override

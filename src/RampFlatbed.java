@@ -24,6 +24,7 @@ public class RampFlatbed extends Flatbed {
         rampStatus = OpenStatus.CLOSED;
     }
 
+
     //-------------------- METHODS --------------------
 
     /**
@@ -32,9 +33,10 @@ public class RampFlatbed extends Flatbed {
      * @param car object to be loaded onto flatbed
      */
     public void loadFlatbed(Car car) {
-        if (isObjectLoadable(car) && rampStatus == OpenStatus.OPEN && isLocationValid(car) && isDirectionValid(car)) {
+        if (isObjectLoadable(car) && rampStatus == OpenStatus.OPEN && isLocationValid(car) && isDirectionValid(car) && !car.isLoaded()) {
             loadedCarsStack.push(car);
             currentLoadedLength += car.getLength() + 10;
+            car.loadOnTransporter();
         }
     }
 
@@ -48,8 +50,7 @@ public class RampFlatbed extends Flatbed {
     public Car unloadObjectFromFlatbed() {
         if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty() ) {
             Car unloadedCar = loadedCarsStack.pop();
-            unloadedCar.setCurrentDirection(Direction.RIGHT);
-            placeUnloadedObjectInWorld(unloadedCar, unloadedCar.getX(), unloadedCar.getY(), unloadedCar.getCurrentDirection());
+            unloadedCar.placeUnloadedVehicleInWorld();
             return unloadedCar;
         } else {
             System.out.println("There are no cars left!");
@@ -57,29 +58,6 @@ public class RampFlatbed extends Flatbed {
         }
     }
 
-    /**
-     * Unload car and update its x, y, direction.
-     *
-     * @param car
-     */
-    public void placeUnloadedObjectInWorld(Car car, double x, double y, Direction currentDirection) {
-
-        switch (currentDirection) {
-            case UP:
-                car.setY(y - 10);
-                car.setX(10);
-            case RIGHT:
-                car.setX(x - 10);
-                car.setY(10);
-            case DOWN:
-                car.setY(y + 10);
-                car.setX(10);
-            case LEFT:
-                car.setX(x + 10);
-                car.setY(10);
-
-        }
-    }
 
     /**
      * Check if object is close enough of the flatbed to be loaded.
@@ -162,5 +140,17 @@ public class RampFlatbed extends Flatbed {
 
     public OpenStatus getRampStatus() {
         return rampStatus;
+    }
+
+    public int getCurrentLoadedLength() {
+        return currentLoadedLength;
+    }
+
+    public int getMaxLoadedLength() {
+        return maxLoadedLength;
+    }
+
+    public Deque<Car> getLoadedCarsStack() {
+        return loadedCarsStack;
     }
 }
