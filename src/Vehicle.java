@@ -1,7 +1,7 @@
 import java.awt.*;
 import static java.lang.System.out;
 
-public abstract class Vehicle implements IMovable {
+public abstract class Vehicle implements IMovable, ITransporter, ITransportable {
 
     private final int nrDoors; // Number of doors of the vehicle
     private double enginePower; // Engine power of the vehicle
@@ -41,7 +41,7 @@ public abstract class Vehicle implements IMovable {
     //-------------------- METHODS --------------------
 
     //TODO: Få koll på hur transportören validers.
-    public void loadOnTransporter (Vehicle transporter) {
+    public void loadOnTransporter (ITransporter transporter) {
         if (!isLoaded && !isMoving() && transporter.isValidToLoad(this)){
             stopEngine();
             isLoaded = true;
