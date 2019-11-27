@@ -12,7 +12,6 @@ import java.util.Deque;
  */
 
 public class RampFlatbed extends Flatbed {
-    //TODO: Remove parent to get away from double dependency. Delegation from CarTransporter.
     private OpenStatus rampStatus; // The status of the ramp. It can be either open or closed.
     private int currentLoadedLength; // The sum of the length of all loaded objects.
     private final int maxLoadedLength; //the maximum length that the flatbed can take.
@@ -50,7 +49,7 @@ public class RampFlatbed extends Flatbed {
     public Car unloadObjectFromFlatbed() {
         if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty() ) {
             Car unloadedCar = loadedCarsStack.pop();
-            unloadedCar.placeUnloadedVehicleInWorld();
+            unloadedCar.placeUnloadedVehicle    InWorld();
             return unloadedCar;
         } else {
             System.out.println("There are no cars left!");
