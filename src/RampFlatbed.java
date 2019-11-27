@@ -49,7 +49,7 @@ public class RampFlatbed extends Flatbed {
     public Car unloadObjectFromFlatbed() {
         if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty() ) {
             Car unloadedCar = loadedCarsStack.pop();
-            unloadedCar.placeUnloadedVehicle    InWorld();
+            unloadedCar.placeUnloadedVehicleInWorld();
             return unloadedCar;
         } else {
             System.out.println("There are no cars left!");

@@ -1,8 +1,8 @@
 /**
- * Class for
+ * Class for a flatbed.
  */
 
-public abstract class Flatbed {
+public abstract class Flatbed implements ITransporter {
     private double x;
     private double y;
     private Direction currentDirection; //Current direction
