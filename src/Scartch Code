@@ -12,3 +12,4 @@ boolean isWeightValid();
 boolean isLocationValid();
 
 boolean isLoadedOrNot();
+

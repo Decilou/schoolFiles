@@ -14,7 +14,7 @@ public class CarController {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
+    private final int delay = 10;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
@@ -31,6 +31,7 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240(Color.cyan));
+        cc.cars.add(new Saab95(Color.red));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -49,11 +50,21 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
+
+                if (collisionWithFrame(x,y)){
+                    car.turnRight();
+                    car.turnRight();
+                }
+
+                frame.drawPanel.moveit(x, y, car);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
         }
+    }
+
+    boolean collisionWithFrame(int x, int y){
+        return (x >= 800-100 || x <= 0 || y <= 0 || y >= 500);
     }
 
     // Calls the gas method for each car once
@@ -64,4 +75,12 @@ public class CarController {
             car.gas(gas);
         }
     }
+    void brake(int amount) {
+        double brake = ((double) amount) / 100;
+        for (Car car : cars
+        ) {
+            car.brake(brake);
+        }
+    }
+
 }

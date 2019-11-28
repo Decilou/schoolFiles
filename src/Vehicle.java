@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.Objects;
+
 import static java.lang.System.out;
 
 // TODO uppdatera konstruktorer med height.
@@ -325,5 +327,34 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
                 ", x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return nrDoors == vehicle.nrDoors &&
+                Double.compare(vehicle.enginePower, enginePower) == 0 &&
+                Double.compare(vehicle.currentSpeed, currentSpeed) == 0 &&
+                Double.compare(vehicle.x, x) == 0 &&
+                Double.compare(vehicle.y, y) == 0 &&
+                length == vehicle.length &&
+                width == vehicle.width &&
+                height == vehicle.height &&
+                weight == vehicle.weight &&
+                isLoaded == vehicle.isLoaded &&
+                Objects.equals(color, vehicle.color) &&
+                Objects.equals(modelName, vehicle.modelName) &&
+                currentDirection == vehicle.currentDirection;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nrDoors, enginePower, currentSpeed, color, modelName, currentDirection, x, y, length, width, height, weight, isLoaded);
     }
 }
