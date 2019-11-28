@@ -1,0 +1,14 @@
+
+
+
+boolean isLengthValid();
+
+boolean isHeightValid();
+
+boolean isWidthValid();
+
+boolean isWeightValid();
+
+boolean isLocationValid();
+
+boolean isLoadedOrNot();

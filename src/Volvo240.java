@@ -8,11 +8,11 @@ public class Volvo240 extends Car {
     public final static double trimFactor = 1.25;
 
     public Volvo240(Color color, Direction currentDirection) {
-        super(4, 100, color, "Volvo240", currentDirection, 482, 171, 1950);
+        super(4, 100, color, "Volvo240", currentDirection, 482, 171, 145, 1950);
     }
 
     public Volvo240(Color color) {
-        super(4, 100, color, "Volvo240",482, 171, 1950);
+        super(4, 100, color, "Volvo240",482, 171, 145, 1950);
     }
 
 
@@ -25,4 +25,18 @@ public class Volvo240 extends Car {
     }
 
 
+    @Override
+    public void load() {
+
+    }
+
+    @Override
+    public void updateTransportable() {
+
+    }
+
+    @Override
+    public void placeUnloadedTransportableInWorld() {
+
+    }
 }

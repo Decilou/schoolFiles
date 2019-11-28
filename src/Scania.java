@@ -10,12 +10,12 @@ public class Scania extends Truck {
     private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
     public Scania(Color color, Direction currentDirection) {
-        super(500, color, "Scania", currentDirection, 593, 255, 18000);
+        super(500, color, "Scania", currentDirection, 593, 255, 420, 18000);
         angledFlatbed = new AngledFlatbed();
     }
 
     public Scania(Color color) {
-        super(500, color, "Scania", 593, 255, 18000);
+        super(500, color, "Scania", 593, 255, 420, 18000);
         angledFlatbed = new AngledFlatbed();
     }
 

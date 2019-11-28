@@ -11,12 +11,12 @@ public class CarTransporter extends Truck {
     private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
     public CarTransporter(Color color,Direction currentDirection) {
-        super(500, color, "Car transporter", currentDirection, 593, 255, 18000);
+        super(500, color, "Car transporter", currentDirection, 593, 255, 420,18000);
         rampFlatbed = new RampFlatbed();
     }
 
     public CarTransporter(Color color) {
-        super(500, color, "Car transporter", 593, 255, 18000);
+        super(500, color, "Car transporter", 593, 255, 420, 18000);
         rampFlatbed = new RampFlatbed();
     }
 
@@ -75,5 +75,20 @@ public class CarTransporter extends Truck {
 
     public int getMaxWeightToPull() {
         return maxWeightToPull;
+    }
+
+    @Override
+    public void load() {
+
+    }
+
+    @Override
+    public void updateTransportable() {
+
+    }
+
+    @Override
+    public void placeUnloadedTransportableInWorld() {
+
     }
 }
