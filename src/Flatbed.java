@@ -2,7 +2,7 @@
  * Class for
  */
 
-public abstract class Flatbed {
+public abstract class Flatbed implements ITransportable, ITansporter {
     private double x;
     private double y;
     private Direction currentDirection; //Current direction
@@ -34,6 +34,37 @@ public abstract class Flatbed {
         maxLoadableWeight = 21772;
         this.currentDirection = Direction.RIGHT;
 
+    }
+
+    public boolean isValidToLoad(ITransportable t){
+
+        return (isLengthValid(t) &&
+                isHeightValid(t) &&
+                isLocationValid(t) &&
+                isWidthValid(t) &&
+                isWeightValid(t));
+    }
+
+
+    private boolean isLengthValid(ITransportable t) {
+
+        return true;
+    }
+
+    private boolean isHeightValid(ITransportable t) {
+        return true;
+    }
+
+    private boolean isWidthValid(ITransportable t){
+        return true;
+    }
+
+    private boolean isWeightValid(ITransportable t) {
+        return true;
+    }
+
+    private boolean isLocationValid(ITransportable t){
+        return true;
     }
 
     //-------------------- GETTERS & SETTERS --------------------

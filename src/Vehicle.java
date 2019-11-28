@@ -1,7 +1,9 @@
 import java.awt.*;
 import static java.lang.System.out;
 
-public abstract class Vehicle implements IMovable {
+// TODO uppdatera konstruktorer.
+
+public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
     private final int nrDoors; // Number of doors of the vehicle
     private double enginePower; // Engine power of the vehicle
@@ -13,11 +15,12 @@ public abstract class Vehicle implements IMovable {
     private double y; // Position variable
     private final int length; // Length of the vehicle
     private final int width; // Width of the vehicle
+    private final int height;
     private int weight; // Weight of the vehicle
     private boolean isLoaded;
 
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int weight) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int height, int weight) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = 0;
@@ -28,14 +31,15 @@ public abstract class Vehicle implements IMovable {
         y = 10;
         stopEngine();
         this.length = length;
+        this.height = height;
         this.width = width;
         this.weight = weight;
         isLoaded  = false;
 
     }
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int weight) {
-        this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, weight);
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int height, int weight) {
+        this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, height, weight);
     }
 
     //-------------------- METHODS --------------------
@@ -64,11 +68,40 @@ public abstract class Vehicle implements IMovable {
         }
     }
 
+    public boolean isValidToLoad(ITransportable t){
 
-    /**
-     * Unload vehicle and update its x or y.
-     *
-     */
+        return (isLengthValid(t) &&
+                isHeightValid(t) &&
+                isLocationValid(t) &&
+                isWidthValid(t) &&
+                isWeightValid(t));
+    }
+
+ // TODO Gå in och fixa allt det här i flatbed och den här.
+    private boolean isLengthValid(ITransportable t) {
+        return true;
+
+    }
+
+    private boolean isHeightValid(ITransportable t) {
+        return true;
+
+    }
+
+    private boolean isWidthValid(ITransportable t){
+        return true;
+
+    }
+
+    private boolean isWeightValid(ITransportable t) {
+        return true;
+
+    }
+
+    private boolean isLocationValid(ITransportable t){
+        return true;
+
+    }
 
     //TODO: ISSUE. Public, andra kommer åt den. Hur stoppa det?
     private void placeUnloadedVehicleInWorld() {
