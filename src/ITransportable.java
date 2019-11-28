@@ -2,9 +2,9 @@ public interface ITransportable {
 
     boolean isLoaded();
 
-    void unloadFromTransporter();
+    void unload();
 
-    void loadOnTransporter();
+    void load();
 
     void updateTransportable();
 

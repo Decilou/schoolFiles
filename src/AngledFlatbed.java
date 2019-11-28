@@ -13,7 +13,6 @@ public class AngledFlatbed extends Flatbed {
 
     /**
      * Tips the flatbeds angle by 1 degree if the flatbed is within accepted parameters.
-     *
      */
 
     public void tipFlatbed() {
@@ -24,7 +23,6 @@ public class AngledFlatbed extends Flatbed {
 
     /**
      * Lowers the flatbeds angle if the flatbed is within accepted parameters.
-     *
      */
 
     public void lowerFlatbed() {
@@ -39,5 +37,4 @@ public class AngledFlatbed extends Flatbed {
     public int getAngle() {
         return angle;
     }
-
 }

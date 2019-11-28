@@ -63,4 +63,19 @@ public class Scania extends Truck {
     public AngledFlatbed getAngledFlatbed() {
         return angledFlatbed;
     }
+
+    @Override
+    public void load() {
+
+    }
+
+    @Override
+    public void updateTransportable() {
+
+    }
+
+    @Override
+    public void placeUnloadedTransportableInWorld() {
+
+    }
 }

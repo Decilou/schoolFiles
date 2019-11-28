@@ -1,7 +1,7 @@
 import java.awt.*;
 import static java.lang.System.out;
 
-// TODO uppdatera konstruktorer.
+// TODO uppdatera konstruktorer med height.
 
 public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
@@ -52,7 +52,7 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
         }
     }
 
-    public void unloadFromTransporter (){
+    public void unload() {
         if (isLoaded){
             placeUnloadedVehicleInWorld();
             isLoaded = false;

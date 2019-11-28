@@ -1,10 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-
-//TODO: Add final on all instance variable that should be immutable.
-//TODO: Remove all instances of parent. Avoiding double dependency between rampFlatbed and CarTransporter.
-
+//TODO:
 
 /**
  * Class for a flatbed with an attached ramp at the end.
@@ -12,16 +9,16 @@ import java.util.Deque;
  */
 
 public class RampFlatbed extends Flatbed {
-    //TODO: Remove parent to get away from double dependency. Delegation from CarTransporter.
     private OpenStatus rampStatus; // The status of the ramp. It can be either open or closed.
     private int currentLoadedLength; // The sum of the length of all loaded objects.
     private final int maxLoadedLength; //the maximum length that the flatbed can take.
-    private Deque<Car> loadedCarsStack = new ArrayDeque<>(); //A stack of the cars that are loaded on the flatbed.
+    private Deque<Car> loadedCarsStack; //A stack of the cars that are loaded on the flatbed.
 
     public RampFlatbed() {
         super();
         maxLoadedLength = getLength();
         rampStatus = OpenStatus.CLOSED;
+        loadedCarsStack = new ArrayDeque<>();
     }
 
 
@@ -36,7 +33,7 @@ public class RampFlatbed extends Flatbed {
         if (isObjectLoadable(car) && rampStatus == OpenStatus.OPEN && isLocationValid(car) && isDirectionValid(car) && !car.isLoaded()) {
             loadedCarsStack.push(car);
             currentLoadedLength += car.getLength() + 10;
-            car.loadOnTransporter();
+            car.load();
         }
     }
 
