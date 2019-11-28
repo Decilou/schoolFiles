@@ -41,14 +41,13 @@ public class RampFlatbed extends Flatbed {
     }
 
 
-
     /**
      * Unload object from flatbed if ramp is open and flatbed is not empty.
      *
      * @return car that was unloaded
      */
     public Car unloadObjectFromFlatbed() {
-        if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty() ) {
+        if (rampStatus == OpenStatus.OPEN && !loadedCarsStack.isEmpty()) {
             Car unloadedCar = loadedCarsStack.pop();
             unloadedCar.placeUnloadedTransportableInWorld();
             return unloadedCar;
