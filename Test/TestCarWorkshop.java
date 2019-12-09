@@ -15,8 +15,8 @@ public class TestCarWorkshop {
 
     @Before
     public void init() {
-        volvo240 = new Volvo240(Color.red);
-        saab95 = new Saab95(Color.black);
+        volvo240 = new Volvo240(Color.red,10,10);
+        saab95 = new Saab95(Color.black,10,10);
         carWorkshop = new CarWorkshop<>(2);
     }
 
@@ -32,7 +32,7 @@ public class TestCarWorkshop {
 
     @Test
     public void isFull_workshopShouldBeFull() {
-        volvo240nr2 = new Volvo240(Color.black);
+        volvo240nr2 = new Volvo240(Color.black,10,10);
 
         carWorkshop.loadCarIntoWorkshop(volvo240);
         carWorkshop.loadCarIntoWorkshop(volvo240nr2);

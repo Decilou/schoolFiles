@@ -11,7 +11,7 @@ public class TestScania {
 
     @Before
     public void init(){
-        testScania = new Scania(Color.blue);
+        testScania = new Scania(Color.blue,10,10);
 
         testScania.startEngine();
     }
@@ -60,7 +60,7 @@ public class TestScania {
     @Test
     public void moveTestIfTruckMovesLEFT () {
 
-        testScania = new Scania(Color.red, Direction.LEFT);
+        testScania = new Scania(Color.red, Direction.LEFT,10,10);
 
         double before = testScania.getX();
 
@@ -77,7 +77,7 @@ public class TestScania {
     @Test
     public void moveTestIfTruckMovesUP () {
 
-        testScania = new Scania(Color.red, Direction.UP);
+        testScania = new Scania(Color.red, Direction.UP,10,10);
 
         double before = testScania.getY();
 
@@ -94,7 +94,7 @@ public class TestScania {
     @Test
     public void moveTestIfTruckMovesDOWN () {
 
-        testScania = new Scania(Color.red, Direction.DOWN);
+        testScania = new Scania(Color.red, Direction.DOWN,10,10);
 
         double before = testScania.getY();
 

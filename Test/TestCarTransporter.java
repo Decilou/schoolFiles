@@ -11,7 +11,7 @@ public class TestCarTransporter {
 
     @Before
     public void init(){
-        testTransporter = new CarTransporter(Color.blue);
+        testTransporter = new CarTransporter(Color.blue,10,10);
 
         testTransporter.startEngine();
     }
@@ -59,7 +59,7 @@ public class TestCarTransporter {
     @Test
     public void moveTestIfTruckMovesLEFT () {
 
-        testTransporter = new CarTransporter(Color.red, Direction.LEFT);
+        testTransporter = new CarTransporter(Color.red, Direction.LEFT,10,10);
 
         double before = testTransporter.getX();
 
@@ -76,7 +76,7 @@ public class TestCarTransporter {
     @Test
     public void moveTestIfTruckMovesUP () {
 
-        testTransporter = new CarTransporter(Color.red, Direction.UP);
+        testTransporter = new CarTransporter(Color.red, Direction.UP,10,10);
 
         double before = testTransporter.getY();
 
@@ -93,7 +93,7 @@ public class TestCarTransporter {
     @Test
     public void moveTestIfTruckMovesDOWN () {
 
-        testTransporter = new CarTransporter(Color.red, Direction.DOWN);
+        testTransporter = new CarTransporter(Color.red, Direction.DOWN,10,10);
 
         double before = testTransporter.getY();
 

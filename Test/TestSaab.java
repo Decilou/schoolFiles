@@ -12,8 +12,8 @@ public class TestSaab {
 
     @Before
     public void init() {
-        testSaab = new Saab95(Color.red);
-        testSaab2 = new Saab95(Color.black);
+        testSaab = new Saab95(Color.red,10,10);
+        testSaab2 = new Saab95(Color.black,10,10);
 
 
         testSaab.startEngine();
@@ -129,7 +129,7 @@ public class TestSaab {
     @Test
     public void moveTestIfCarMovesLEFT () {
 
-        testSaab = new Saab95(Color.red, Direction.LEFT);
+        testSaab = new Saab95(Color.red, Direction.LEFT,10,10);
 
         double before = testSaab.getX();
 
@@ -146,7 +146,7 @@ public class TestSaab {
     @Test
     public void moveTestIfCarMovesUP () {
 
-        testSaab = new Saab95(Color.red, Direction.UP);
+        testSaab = new Saab95(Color.red, Direction.UP,10,10);
 
         double before = testSaab.getY();
 
@@ -163,7 +163,7 @@ public class TestSaab {
     @Test
     public void moveTestIfCarMovesDOWN () {
 
-        testSaab = new Saab95(Color.red, Direction.DOWN);
+        testSaab = new Saab95(Color.red, Direction.DOWN,10,10);
 
         double before = testSaab.getY();
 

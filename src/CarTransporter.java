@@ -10,13 +10,13 @@ public class CarTransporter extends Truck {
     private RampFlatbed rampFlatbed; // The flatbed with a ramp.
     private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
-    public CarTransporter(Color color,Direction currentDirection) {
-        super(500, color, "Car transporter", currentDirection, 593, 255, 420,18000);
+    public CarTransporter(Color color, Direction currentDirection, double x, double y) {
+        super(500, color, "Car transporter", currentDirection, 593, 255, 420, 18000, x, y);
         rampFlatbed = new RampFlatbed();
     }
 
-    public CarTransporter(Color color) {
-        super(500, color, "Car transporter", 593, 255, 420, 18000);
+    public CarTransporter(Color color, double x, double y) {
+        super(500, color, "Car transporter", 593, 255, 420, 18000, x, y);
         rampFlatbed = new RampFlatbed();
     }
 
@@ -40,7 +40,7 @@ public class CarTransporter extends Truck {
     public void updatePositionForCarsInStack() {
         Deque<Car> stack = rampFlatbed.getLoadedCarsStack();
 
-        for (Car c: stack){
+        for (Car c : stack) {
             c.updateTransportedVehicle(this);
         }
     }

@@ -7,13 +7,13 @@ public class Saab95 extends Car {
 
     public boolean turboOn;
 
-    public Saab95(Color color, Direction currentDirection) {
-        super(4, 125, color, "Saab95", currentDirection, 480, 179, 145, 1495);
+    public Saab95(Color color, Direction currentDirection, double x, double y) {
+        super(4, 125, color, "Saab95", currentDirection, 480, 179, 145, 1495, x, y);
         turboOn = false;
     }
 
-    public Saab95(Color color) {
-        super(4, 125, color, "Saab95", 480, 179, 145, 1495);
+    public Saab95(Color color, double x, double y) {
+        super(4, 125, color, "Saab95", 480, 179, 145, 1495, x, y);
         turboOn = false;
     }
 
@@ -33,6 +33,7 @@ public class Saab95 extends Car {
 
     /**
      * Calculates and returns speed factor of the car.
+     *
      * @return speed factor of the car
      */
     public double speedFactor() {

@@ -22,15 +22,15 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
     private boolean isLoaded;
 
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int height, int weight) {
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int height, int weight, double x, double y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = 0;
         this.color = color;
         this.modelName = modelName;
         this.currentDirection = currentDirection;
-        x = 10;
-        y = 10;
+        this.x = x;
+        this.y = y;
         stopEngine();
         this.length = length;
         this.height = height;
@@ -40,8 +40,8 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
     }
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int height, int weight) {
-        this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, height, weight);
+    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int height, int weight, double x, double y) {
+        this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, height, weight,x,y);
     }
 
     //-------------------- METHODS --------------------

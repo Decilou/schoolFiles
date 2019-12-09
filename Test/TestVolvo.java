@@ -12,8 +12,8 @@ public class TestVolvo {
 
     @Before
     public void init() {
-        testVolvo = new Volvo240(Color.red);
-        testVolvo2 = new Volvo240(Color.black);
+        testVolvo = new Volvo240(Color.red,10,10);
+        testVolvo2 = new Volvo240(Color.black,10,10);
 
 
         testVolvo.startEngine();
@@ -129,7 +129,7 @@ public class TestVolvo {
     @Test
     public void moveTestIfCarMovesLEFT () {
 
-        testVolvo = new Volvo240(Color.red, Direction.LEFT);
+        testVolvo = new Volvo240(Color.red, Direction.LEFT,10,10);
 
         double before = testVolvo.getX();
 

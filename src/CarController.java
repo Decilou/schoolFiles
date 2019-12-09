@@ -22,7 +22,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     //methods:
 
@@ -30,8 +30,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240(Color.cyan));
-        cc.cars.add(new Saab95(Color.red));
+        cc.vehicles.add(new Volvo240(Color.cyan,10,10));
+        cc.vehicles.add(new Saab95(Color.red,10,110));
+        cc.vehicles.add(new Scania(Color.black,10, 210));
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -46,17 +47,17 @@ public class CarController {
     * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                int x = (int) Math.round(car.getX());
-                int y = (int) Math.round(car.getY());
+            for (Vehicle v : vehicles) {
+                v.move();
+                int x = (int) Math.round(v.getX());
+                int y = (int) Math.round(v.getY());
 
                 if (collisionWithFrame(x,y)){
-                    car.turnRight();
-                    car.turnRight();
+                    v.turnRight();
+                    v.turnRight();
                 }
 
-                frame.drawPanel.moveit(x, y, car);
+                frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -70,16 +71,15 @@ public class CarController {
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
-                ) {
-            car.gas(gas);
+        for (Vehicle v : vehicles) {
+            v.gas(gas);
         }
     }
     void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for (Car car : cars
+        for (Vehicle v : vehicles
         ) {
-            car.brake(brake);
+            v.brake(brake);
         }
     }
 
