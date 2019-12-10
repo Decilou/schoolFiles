@@ -57,7 +57,7 @@ public class CarController {
                     v.turnRight();
                 }
 
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveIt(x, y, v);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
