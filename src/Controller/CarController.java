@@ -28,17 +28,11 @@ public class CarController {
     public Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    public CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    public ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     //methods:
-
-
-
-    boolean collisionWithFrame(int x, int y) {
-        return (x >= 800 - 100 || x <= 0 || y <= 0 || y >= 500);
-    }
 
     public void startCars() {
         for (Vehicle v : vehicles) {
@@ -68,6 +62,7 @@ public class CarController {
         }
     }
 
+
     // TODO Fundera över getPosition behövs .
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
@@ -79,10 +74,7 @@ public class CarController {
                 int x = (int) Math.round(v.getX());
                 int y = (int) Math.round(v.getY());
 
-                if (collisionWithFrame(x, y)) {
-                    v.turnRight();
-                    v.turnRight();
-                }
+                v.collisionWithFrame(x, y);
 
                 frame.drawPanel.moveIt(x, y, v);
                 // repaint() calls the paintComponent method of the panel

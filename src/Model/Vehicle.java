@@ -56,6 +56,14 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
         }
     }
 
+
+    public void collisionWithFrame(int x, int y) {
+        if (x >= World.getX() - 100 || x <= 0 || y <= 0 || y >= World.getY()){
+            turnRight();
+            turnRight();
+        }
+    }
+
     public void unload() {
         if (isLoaded){
             placeUnloadedVehicleInWorld();

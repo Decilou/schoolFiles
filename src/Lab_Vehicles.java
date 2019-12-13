@@ -1,9 +1,9 @@
-package Controller;
-
+import Controller.CarController;
 import Model.Saab95;
 import Model.Scania;
 import Model.Volvo240;
 import View.CarView;
+import Controller.CarController;
 
 import java.awt.*;
 

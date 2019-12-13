@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Controller.CarController;
+import Model.World;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -17,8 +18,8 @@ import Controller.CarController;
  **/
 
 public class CarView extends JFrame{
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = World.getX();
+    private static final int Y = World.getY();
 
     // The controller member
     CarController carC;
