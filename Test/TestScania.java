@@ -1,3 +1,5 @@
+import Model.Direction;
+import Model.Scania;
 import org.junit.Before;
 import org.junit.Test;
 

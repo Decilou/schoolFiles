@@ -1,5 +1,8 @@
 import java.awt.*;
 
+import Model.CarWorkshop;
+import Model.Saab95;
+import Model.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
 

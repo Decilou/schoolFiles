@@ -1,3 +1,5 @@
+import Model.Direction;
+import Model.Volvo240;
 import org.junit.Before;
 import org.junit.Test;
 

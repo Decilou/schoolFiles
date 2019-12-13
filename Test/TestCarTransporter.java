@@ -1,3 +1,6 @@
+import Model.CarTransporter;
+import Model.Direction;
+import Model.OpenStatus;
 import org.junit.Before;
 import org.junit.Test;
 
