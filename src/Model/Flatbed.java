@@ -4,7 +4,6 @@ package Model;
  * Class for a flatbed.
  */
 
-//TODO: Removed Model.ITransportable temporary. Implement later.
 public abstract class Flatbed implements ITansporter {
     private final int length; // The length of the flatbed
     private final int height;

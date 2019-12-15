@@ -62,11 +62,9 @@ public class CarController {
         }
     }
 
-
-    // TODO Fundera över getPosition behövs .
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
-     * */
+     */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle v : vehicles) {

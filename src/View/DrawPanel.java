@@ -11,17 +11,17 @@ import Model.Vehicle;
 
 public class DrawPanel<T extends Vehicle> extends JPanel {
 
-    // TODO: Hardcode instance variable for each image.
+    // Hardcoded instance variables of vehicle images.
     BufferedImage saabImage;
     BufferedImage volvoImage;
     BufferedImage scaniaImage;
 
-    // To keep track of a singel cars position
+    // Hardcoded starting points for all different vehicles.
     Point saabPoint = new Point(10, 10);
     Point volvoPoint = new Point(10, 110);
     Point scaniaPoint = new Point(10, 210);
 
-    public DrawPanel(int x, int y) {
+    DrawPanel(int x, int y) {
         // Initializes the panel and reads the images
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
