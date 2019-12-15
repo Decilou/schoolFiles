@@ -5,11 +5,11 @@ public class World {
     private static final int X = 800;
     private static final int Y = 800;
 
-    public static int getX() {
+    public int getWorldX() {
         return X;
     }
 
-    public static int getY() {
+    public int getWorldY() {
         return Y;
     }
 }
