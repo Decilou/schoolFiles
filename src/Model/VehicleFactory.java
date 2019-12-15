@@ -4,17 +4,17 @@ import java.awt.*;
 
 public class VehicleFactory {
 
-    public Vehicle getVehicle(String modelType) {
+    public Vehicle getVehicle(ModelNames names) {
 
-        if (modelType == null) {
+        if (names == null) {
             return null;
-        } else if (modelType.equalsIgnoreCase("SAAB")) {
+        } else if (names.equals(ModelNames.SAAB)) {
             return new Saab95(Color.black, 10, 10);
 
-        } else if (modelType.equalsIgnoreCase("VOLVO")) {
+        } else if (names.equals(ModelNames.VOLVO)) {
             return new Volvo240(Color.gray, 10, 110);
 
-        } else if (modelType.equalsIgnoreCase("SCANIA")) {
+        } else if (names.equals(ModelNames.SCANIA)) {
             return new Scania(Color.red, 10, 210);
         }
         return null;
