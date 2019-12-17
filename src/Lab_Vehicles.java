@@ -18,6 +18,4 @@ public class Lab_Vehicles {
         // Start the timer
         cc.timer.start();
     }
-
-
 }

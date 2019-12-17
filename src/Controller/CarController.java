@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Saab95;
-import Model.Scania;
-import Model.Vehicle;
-import Model.Volvo240;
+import Model.*;
 import View.CarView;
 
 import javax.swing.*;
@@ -29,8 +26,12 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     public CarView frame;
-    // A list of cars, modify if needed
-    public ArrayList<Vehicle> vehicles = new ArrayList<>();
+    CarModel model;
+
+    public CarController() {
+        model = new CarModel();
+        frame = new CarView(model);
+    }
 
     //methods:
 
@@ -67,16 +68,16 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Vehicle v : vehicles) {
+            for (Vehicle v : model.vehicles) {
                 v.move();
                 int x = (int) Math.round(v.getX());
                 int y = (int) Math.round(v.getY());
 
                 v.collisionWithFrame(x, y);
 
-                frame.drawPanel.moveIt(x, y, v);
+                frame.moveIt(x, y, v);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
+                frame.repaintFrame();
             }
         }
     }

@@ -5,11 +5,13 @@ public class World {
     private static final int X = 800;
     private static final int Y = 800;
 
-    public int getWorldX() {
+
+    //TODO: Why should they be static? Should they not be?
+    public static int getWorldX() {
         return X;
     }
 
-    public int getWorldY() {
+    public static int getWorldY() {
         return Y;
     }
 }

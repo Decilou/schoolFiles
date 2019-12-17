@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Controller.CarController;
+import Model.CarModel;
+import Model.Vehicle;
 import Model.World;
 
 /**
@@ -15,41 +17,50 @@ import Model.World;
  * It initializes with being center on the screen and attaching it's controller in it's state.
  * It communicates with the Controller by calling methods of it when an action fires of in
  * each of it's components.
- * TODO: Write more actionListeners and wire the rest of the buttons
  **/
 
 public class CarView extends JFrame {
-    private static final int X = World.getX();
-    private static final int Y = World.getY();
+    //TODO: Get these values from model instead.
+    private static final int X = 800;
+    private static final int Y = 800;
 
+
+    //TODO: Replace this with Observer Pattern.
     // The controller member
-    CarController carC;
+    private CarModel model;
 
-    public DrawPanel drawPanel = new DrawPanel(X, Y - 240);
+    private DrawPanel drawPanel = new DrawPanel(X, Y - 240);
 
-    JPanel controlPanel = new JPanel();
+    private JPanel controlPanel = new JPanel();
 
-    JPanel gasPanel = new JPanel();
-    JSpinner gasSpinner = new JSpinner();
-    int spinnerAmount = (int) gasSpinner.getValue();
-    JLabel gasLabel = new JLabel("Amount");
+    private JPanel gasPanel = new JPanel();
+    private JSpinner gasSpinner = new JSpinner();
+    private int spinnerAmount = (int) gasSpinner.getValue();
+    private JLabel gasLabel = new JLabel("Amount");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Model.Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    private JButton gasButton = new JButton("Gas");
+    private JButton brakeButton = new JButton("Brake");
+    private JButton turboOnButton = new JButton("Saab Turbo on");
+    private JButton turboOffButton = new JButton("Saab Turbo off");
+    private JButton liftBedButton = new JButton("Model.Scania Lift Bed");
+    private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    private JButton startButton = new JButton("Start all cars");
+    private JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarController cc) {
-        this.carC = cc;
+    public CarView(String framename, CarModel model) {
+        this.model = model;
         initComponents(framename);
     }
 
+    public void moveIt(int x, int y, Vehicle v) {
+        drawPanel.moveIt(x, y, v);
+    }
+
+    public void repaintFrame() {
+        drawPanel.repaint();
+    }
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {

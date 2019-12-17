@@ -5,8 +5,6 @@ import java.util.Objects;
 
 import static java.lang.System.out;
 
-// TODO uppdatera konstruktorer med height.
-
 public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
     private final int nrDoors; // Number of doors of the vehicle
@@ -24,7 +22,7 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
     private boolean isLoaded;
 
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int height, int weight, double x, double y) {
+    Vehicle(int nrDoors, double enginePower, Color color, String modelName, Direction currentDirection, int length, int width, int height, int weight, double x, double y) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = 0;
@@ -42,13 +40,13 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
     }
 
-    public Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int height, int weight, double x, double y) {
+    Vehicle(int nrDoors, double enginePower, Color color, String modelName, int length, int width, int height, int weight, double x, double y) {
         this(nrDoors, enginePower, color, modelName, Direction.RIGHT, length, width, height, weight,x,y);
     }
 
     //-------------------- METHODS --------------------
 
-    //TODO: Få koll på hur transportören validers.
+    //TODO: Figure out how to validate the transporter.
     public void loadOnTransporter (Vehicle transporter) {
         if (!isLoaded && !isMoving() && transporter.isValidToLoad(this)){
             stopEngine();
@@ -56,9 +54,9 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
         }
     }
 
-
+    //TODO: Move the collision detection into a seperate class.
     public void collisionWithFrame(int x, int y) {
-        if (x >= World.getX() - 100 || x <= 0 || y <= 0 || y >= World.getY()){
+        if (x >= World.getWorldX() - 100 || x <= 0 || y <= 0 || y >= World.getWorldY()) {
             turnRight();
             turnRight();
         }
@@ -89,7 +87,7 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
                 isWeightValid(t));
     }
 
- // TODO Gå in och fixa allt det här i flatbed och den här.
+    // TODO: All these values are set to true. Figure out how validation should work.
     private boolean isLengthValid(ITransportable t) {
         return true;
 
@@ -115,7 +113,6 @@ public abstract class Vehicle implements IMovable, ITansporter, ITransportable {
 
     }
 
-    //TODO: ISSUE. Public, andra kommer åt den. Hur stoppa det?
     private void placeUnloadedVehicleInWorld() {
 
         double y = getY();
