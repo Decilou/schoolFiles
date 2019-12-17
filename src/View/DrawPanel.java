@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import Model.Vehicle;
 
 // This panel represent the animated part of the view with the car images.
 
@@ -38,18 +37,18 @@ public class DrawPanel extends JPanel {
 
     }
 
-    void moveIt(int x, int y, Vehicle v) {
+    void moveIt(int x, int y, String modelType) {
 
-        switch (v.getModelName()) {
-            case "Model.Scania":
+        switch (modelType) {
+            case "Scania":
                 scaniaPoint.x = x;
                 scaniaPoint.y = y;
                 break;
-            case "Model.Saab95":
+            case "Saab95":
                 saabPoint.x = x;
                 saabPoint.y = y;
                 break;
-            case "Model.Volvo240":
+            case "Volvo240":
                 volvoPoint.x = x;
                 volvoPoint.y = y;
                 break;

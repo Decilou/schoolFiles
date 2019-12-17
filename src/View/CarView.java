@@ -8,11 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import Controller.CarController;
 import Controller.ISubscriber;
 import Model.CarModel;
-import Model.Vehicle;
-import Model.World;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -23,17 +20,13 @@ import Model.World;
 
 public class CarView extends JFrame {
     //TODO: Get these values from model instead.
-    private static final int X = 800;
-    private static final int Y = 800;
-
-
-    //TODO: Replace this with Observer Pattern.
-    // The controller member
-    private CarModel model;
+    private final int X = 800;
+    private final int Y = 800;
+    private int counter = 0;
 
     private ArrayList<ISubscriber> subscribers = new ArrayList<>();
 
-    private DrawPanel drawPanel = new DrawPanel(X, Y - 240);
+    private DrawPanel drawPanel = new DrawPanel(800,800 - 240);
 
     private JPanel controlPanel = new JPanel();
 
@@ -53,13 +46,12 @@ public class CarView extends JFrame {
     private JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String framename, CarModel model) {
-        this.model = model;
-        initComponents(framename);
+    public CarView(String frameName) {
+        initComponents(frameName);
     }
 
-    public void moveIt(int x, int y, Vehicle v) {
-        drawPanel.moveIt(x, y, v);
+    public void moveIt(int x, int y, String name) {
+        drawPanel.moveIt(x, y, name);
     }
 
     public void repaintFrame() {
@@ -123,28 +115,36 @@ public class CarView extends JFrame {
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.gas(spinnerAmount);
+                counter = 1;
+                notifySubscribers();
+                //carC.gas(spinnerAmount);
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(spinnerAmount);
+                counter = 2;
+                notifySubscribers();
+                //carC.brake(spinnerAmount);
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.startCars();
+                counter = 3;
+                notifySubscribers();
+                //carC.startCars();
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stopCars();
+                counter = 4;
+                notifySubscribers();
+                //carC.stopCars();
             }
         });
 
@@ -163,20 +163,21 @@ public class CarView extends JFrame {
     }
 
     public void subscribe(ISubscriber s) {
-
+        subscribers.add(s);
     }
 
     public void unsubscribe(ISubscriber s) {
-
-    }
-
-    public void notifySubscribers() {
-        for (ISubscriber s : subscribers) {
-            s.update(this);
+        for (ISubscriber sub: subscribers) {
+            if(sub == s) {
+                subscribers.remove(subscribers.indexOf(sub));
+            }
         }
     }
 
-    public void mainBusinessLogic() {
-
+    private void notifySubscribers() {
+        for (ISubscriber s : subscribers) {
+            s.update(spinnerAmount, counter);
+        }
     }
+
 }

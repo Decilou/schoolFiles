@@ -1,7 +1,5 @@
 package Model;
 
-import Model.AngledFlatbed;
-
 import java.awt.*;
 
 /**
@@ -14,12 +12,12 @@ public class Scania extends Truck {
     private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
     public Scania(Color color, Direction currentDirection, double x, double y) {
-        super(500, color, "Model.Scania", currentDirection, 593, 255, 420, 18000,x,y);
+        super(500, color, "Scania", currentDirection, 593, 255, 420, 18000,x,y);
         angledFlatbed = new AngledFlatbed();
     }
 
     public Scania(Color color, double x, double y) {
-        super(500, color, "Model.Scania", 593, 255, 420, 18000,x,y);
+        super(500, color, "Scania", 593, 255, 420, 18000,x,y);
         angledFlatbed = new AngledFlatbed();
     }
 

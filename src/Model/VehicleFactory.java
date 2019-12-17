@@ -2,9 +2,9 @@ package Model;
 
 import java.awt.*;
 
-public class VehicleFactory {
+class VehicleFactory {
 
-    public Vehicle getVehicle(ModelNames names) {
+    Vehicle getVehicle(ModelNames names) {
 
         if (names == null) {
             return null;

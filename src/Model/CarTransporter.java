@@ -1,7 +1,5 @@
 package Model;
 
-import Model.Car;
-
 import java.awt.*;
 import java.util.Deque;
 
@@ -15,12 +13,12 @@ public class CarTransporter extends Truck {
     private final int maxWeightToPull = 40000; // The max weight the truck can pull.
 
     public CarTransporter(Color color, Direction currentDirection, double x, double y) {
-        super(500, color, "Model.Car transporter", currentDirection, 593, 255, 420, 18000, x, y);
+        super(500, color, "Car transporter", currentDirection, 593, 255, 420, 18000, x, y);
         rampFlatbed = new RampFlatbed();
     }
 
     public CarTransporter(Color color, double x, double y) {
-        super(500, color, "Model.Car transporter", 593, 255, 420, 18000, x, y);
+        super(500, color, "Car transporter", 593, 255, 420, 18000, x, y);
         rampFlatbed = new RampFlatbed();
     }
 

@@ -1,12 +1,10 @@
 package Model;
 
-import Model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Model.Car workshop
+ * Car workshop
  *
  * @param <T>
  */

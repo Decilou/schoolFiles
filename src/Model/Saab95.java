@@ -1,7 +1,5 @@
 package Model;
 
-import Model.Car;
-
 import java.awt.*;
 
 /**
@@ -12,12 +10,12 @@ public class Saab95 extends Car {
     public boolean turboOn;
 
     public Saab95(Color color, Direction currentDirection, double x, double y) {
-        super(4, 125, color, "Model.Saab95", currentDirection, 480, 179, 145, 1495, x, y);
+        super(4, 125, color, "Saab95", currentDirection, 480, 179, 145, 1495, x, y);
         turboOn = false;
     }
 
     public Saab95(Color color, double x, double y) {
-        super(4, 125, color, "Model.Saab95", 480, 179, 145, 1495, x, y);
+        super(4, 125, color, "Saab95", 480, 179, 145, 1495, x, y);
         turboOn = false;
     }
 

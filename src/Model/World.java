@@ -1,17 +1,17 @@
 package Model;
 
-public class World {
+class World {
 
     private static final int X = 800;
     private static final int Y = 800;
 
 
     //TODO: Why should they be static? Should they not be?
-    public static int getWorldX() {
+    static int getWorldX() {
         return X;
     }
 
-    public static int getWorldY() {
+    static int getWorldY() {
         return Y;
     }
 }

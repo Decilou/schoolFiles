@@ -1,8 +1,5 @@
 package Model;
 
-import Model.Car;
-import Model.Flatbed;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 

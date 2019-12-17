@@ -1,5 +1,7 @@
 package Controller;
 
+import View.CarView;
+
 public interface ISubscriber {
-    void update();
+    void update(int s, int c);
 }

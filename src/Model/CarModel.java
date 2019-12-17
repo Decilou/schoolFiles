@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class CarModel {
 
-    public ArrayList<Vehicle> vehicles = new ArrayList<>();
+    private ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-    private VehicleFactory factory;
     private World world;
 
     public CarModel() {
         world = new World();
-        factory = new VehicleFactory();
+        VehicleFactory factory = new VehicleFactory();
         vehicles.add(factory.getVehicle(ModelNames.SAAB));
         vehicles.add(factory.getVehicle(ModelNames.VOLVO));
         vehicles.add(factory.getVehicle(ModelNames.SCANIA));
@@ -25,6 +24,7 @@ public class CarModel {
         return world.getWorldY();
     }
 
-
-
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
+    }
 }
