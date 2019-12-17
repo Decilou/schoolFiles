@@ -6,8 +6,10 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import Controller.CarController;
+import Controller.ISubscriber;
 import Model.CarModel;
 import Model.Vehicle;
 import Model.World;
@@ -28,6 +30,8 @@ public class CarView extends JFrame {
     //TODO: Replace this with Observer Pattern.
     // The controller member
     private CarModel model;
+
+    private ArrayList<ISubscriber> subscribers = new ArrayList<>();
 
     private DrawPanel drawPanel = new DrawPanel(X, Y - 240);
 
@@ -156,5 +160,23 @@ public class CarView extends JFrame {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void subscribe(ISubscriber s) {
+
+    }
+
+    public void unsubscribe(ISubscriber s) {
+
+    }
+
+    public void notifySubscribers() {
+        for (ISubscriber s : subscribers) {
+            s.update(this);
+        }
+    }
+
+    public void mainBusinessLogic() {
+
     }
 }

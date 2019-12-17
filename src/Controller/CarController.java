@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarController implements ISubscriber {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -30,7 +30,7 @@ public class CarController {
 
     public CarController() {
         model = new CarModel();
-        frame = new CarView(model);
+        frame = new CarView("CarSim 1.0", model);
     }
 
     //methods:
@@ -61,6 +61,11 @@ public class CarController {
         for (Vehicle v : vehicles) {
             v.stopEngine();
         }
+    }
+
+    @Override
+    public void update() {
+
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
