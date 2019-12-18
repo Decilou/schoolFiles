@@ -1,6 +1,6 @@
 package Model;
 
-public enum ModelNames {
+public enum VehicleModelName {
 
     SAAB,
     VOLVO,

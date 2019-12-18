@@ -11,9 +11,9 @@ public class CarModel {
     public CarModel() {
         world = new World();
         VehicleFactory factory = new VehicleFactory();
-        vehicles.add(factory.getVehicle(ModelNames.SAAB));
-        vehicles.add(factory.getVehicle(ModelNames.VOLVO));
-        vehicles.add(factory.getVehicle(ModelNames.SCANIA));
+        vehicles.add(factory.createVehicle(VehicleModelName.SAAB));
+        vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
+        vehicles.add(factory.createVehicle(VehicleModelName.SCANIA));
     }
 
     public int getWorldX() {
