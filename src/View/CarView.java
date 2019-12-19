@@ -37,9 +37,9 @@ public class CarView extends JFrame {
 
     private JButton gasButton = new JButton("Gas");
     private JButton brakeButton = new JButton("Brake");
-    private JButton turboOnButton = new JButton("Saab Turbo on");
-    private JButton turboOffButton = new JButton("Saab Turbo off");
-    private JButton liftBedButton = new JButton("Model.Scania Lift Bed");
+    private JButton addCarButton = new JButton("Add car");
+    private JButton removeCarButton = new JButton("Remove car");
+    private JButton liftBedButton = new JButton("Scania Lift Bed");
     private JButton lowerBedButton = new JButton("Lower Lift Bed");
 
     private JButton startButton = new JButton("Start all cars");
@@ -54,8 +54,9 @@ public class CarView extends JFrame {
         drawPanel.moveIt(x, y, name);
     }
 
-    public void repaintFrame() {
-        drawPanel.repaint();
+    public void repaintFrame(ArrayList vehicleNames) {
+
+        drawPanel.repaintFrame(vehicleNames);
     }
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
@@ -89,10 +90,10 @@ public class CarView extends JFrame {
         controlPanel.setLayout(new GridLayout(2, 4));
 
         controlPanel.add(gasButton, 0);
-        controlPanel.add(turboOnButton, 1);
+        controlPanel.add(addCarButton, 1);
         controlPanel.add(liftBedButton, 2);
         controlPanel.add(brakeButton, 3);
-        controlPanel.add(turboOffButton, 4);
+        controlPanel.add(removeCarButton, 4);
         controlPanel.add(lowerBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
         this.add(controlPanel);
@@ -145,6 +146,21 @@ public class CarView extends JFrame {
                 counter = 4;
                 notifySubscribers();
                 //carC.stopCars();
+            }
+        });
+
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                counter = 5;
+                notifySubscribers();
+            }
+        });
+        removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                counter = 6;
+                notifySubscribers();
             }
         });
 

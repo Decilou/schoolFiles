@@ -62,6 +62,14 @@ public class CarController implements ISubscriber {
         }
     }
 
+    private void addCar(){
+        model.addRandomCar();
+    }
+
+    private void removeCar(){
+        model.removeCar();
+    }
+
     @Override
     public void update(int spinner, int counter) {
 
@@ -77,6 +85,12 @@ public class CarController implements ISubscriber {
                 break;
             case 4:
                 stopCars();
+                break;
+            case 5:
+                addCar();
+                break;
+            case 6:
+                removeCar();
                 break;
         }
     }
@@ -95,7 +109,7 @@ public class CarController implements ISubscriber {
 
                 frame.moveIt(x, y, v.getModelName());
                 // repaint() calls the paintComponent method of the panel
-                frame.repaintFrame();
+                frame.repaintFrame(model.createNameList());
             }
         }
     }
