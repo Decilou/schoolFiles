@@ -46,6 +46,7 @@ public class DrawPanel extends JPanel {
 
     void repaintFrame (ArrayList vehicles){
         this.vehicles = vehicles;
+        this.repaint();
     }
 
     void moveIt(int x, int y, String modelType) {
@@ -71,9 +72,6 @@ public class DrawPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (String s: vehicles){
-
-        }
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters

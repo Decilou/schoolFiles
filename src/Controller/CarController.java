@@ -28,7 +28,7 @@ public class CarController implements ISubscriber {
 
     public CarController() {
         model = new CarModel();
-        frame = new CarView("CarSim 1.0");
+        frame = new CarView("CarSim 1.0", model.getWorldX(), model.getWorldY());
         frame.subscribe(this);
         timer.start();
     }

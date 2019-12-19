@@ -20,12 +20,13 @@ import Model.CarModel;
 
 public class CarView extends JFrame {
     //TODO: Get these values from model instead.
-    private final int X = 800;
-    private final int Y = 800;
+    private int X;
+    private int Y;
     private int counter = 0;
 
     private ArrayList<ISubscriber> subscribers = new ArrayList<>();
 
+    private CarModel model;
     private DrawPanel drawPanel = new DrawPanel(800,800 - 240);
 
     private JPanel controlPanel = new JPanel();
@@ -46,7 +47,9 @@ public class CarView extends JFrame {
     private JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String frameName) {
+    public CarView(String frameName, int x, int y) {
+        X = x;
+        Y = y;
         initComponents(frameName);
     }
 
