@@ -22,7 +22,7 @@ public class DrawPanel extends JPanel {
 
     private ArrayList<String> vehicles;
 
-    // Hardcoded starting points for all different vehicles.
+    //TODO: Make points general for all cars no matter how many.
     private Point saabPoint = new Point(10, 10);
     private Point volvoPoint = new Point(10, 110);
     private Point scaniaPoint = new Point(10, 210);
@@ -41,16 +41,9 @@ public class DrawPanel extends JPanel {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-    }
-
-    void repaintFrame (ArrayList vehicles){
-        this.vehicles = vehicles;
-        this.repaint();
     }
 
     void moveIt(int x, int y, String modelType) {
-
         switch (modelType) {
             case "Scania":
                 scaniaPoint.x = x;
@@ -68,12 +61,23 @@ public class DrawPanel extends JPanel {
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
-    // TODO: Add a for-loop with the CarModel list.
+    // TODO: Add a method call to fix the Vehicles Null pointer issue
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
+        for (String v : vehicles) {
+            super.paintComponent(g);
+            switch (v) {
+                case "Scania":
+                    g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
+                    break;
+                case "Volvo240":
+                    g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+                    break;
+                case "Saab95":
+                    g.drawImage(saabImage, saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
+                    break;
+            }
+        }
     }
 }
+

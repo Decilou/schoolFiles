@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import View.CarView;
+import View.DrawPanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -102,14 +103,14 @@ public class CarController implements ISubscriber {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle v : model.getVehicles()) {
                 v.move();
+                //TODO: THIS is where we handle carEvent. This is the trigger! A vehicle moves.
                 int x = (int) Math.round(v.getX());
                 int y = (int) Math.round(v.getY());
 
                 v.collisionWithFrame(x, y);
 
                 frame.moveIt(x, y, v.getModelName());
-                // repaint() calls the paintComponent method of the panel
-                frame.repaintFrame(model.createNameList());
+                frame.repaint();
             }
         }
     }

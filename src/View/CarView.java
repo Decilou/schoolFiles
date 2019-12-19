@@ -19,14 +19,12 @@ import Model.CarModel;
  **/
 
 public class CarView extends JFrame {
-    //TODO: Get these values from model instead.
     private int X;
     private int Y;
     private int counter = 0;
 
     private ArrayList<ISubscriber> subscribers = new ArrayList<>();
 
-    private CarModel model;
     private DrawPanel drawPanel = new DrawPanel(800,800 - 240);
 
     private JPanel controlPanel = new JPanel();
@@ -57,9 +55,8 @@ public class CarView extends JFrame {
         drawPanel.moveIt(x, y, name);
     }
 
-    public void repaintFrame(ArrayList vehicleNames) {
-
-        drawPanel.repaintFrame(vehicleNames);
+    public void repaint() {
+        drawPanel.repaint();
     }
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work

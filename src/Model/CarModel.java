@@ -53,11 +53,11 @@ public class CarModel {
 
 
     public int getWorldX() {
-        return world.getWorldX();
+        return World.getWorldX();
     }
 
     public int getWorldY() {
-        return world.getWorldY();
+        return World.getWorldY();
     }
 
     public ArrayList<Vehicle> getVehicles() {
