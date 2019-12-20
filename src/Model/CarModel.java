@@ -16,10 +16,8 @@ public class CarModel {
 
     //Constructor
     public CarModel() {
-        factory = new VehicleFactory();
+        factory = new VehicleFactory(vehicles);
         vehicles.add(factory.createVehicle(VehicleModelName.SAAB));
-        vehicles.add(factory.createVehicle(VehicleModelName.SCANIA));
-        vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
     }
 
     public void addRandomCar() {
@@ -28,17 +26,23 @@ public class CarModel {
             switch (rand.nextInt(3)) {
                 case 0:
                     vehicles.add(factory.createVehicle(VehicleModelName.SAAB));
+                    break;
                 case 1:
                     vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
+                    break;
                 case 2:
                     vehicles.add(factory.createVehicle(VehicleModelName.SCANIA));
+                    break;
             }
         }
     }
 
+    //TODO: WHy cant we remove the last car?
     public void removeCar() {
-        if (vehicles.size() > 0) {
-            vehicles.remove(vehicles.size());
+        if (vehicles.size() > 1) {
+            vehicles.remove(vehicles.size() - 1);
+        } else {
+            vehicles.remove(0);
         }
     }
 
