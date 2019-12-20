@@ -1,5 +1,4 @@
 package Model;
-import jdk.jshell.execution.Util;
 
 import java.util.Random;
 
@@ -9,12 +8,9 @@ public class CarModel {
 
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-    private World world;
-
     VehicleFactory factory;
 
     public CarModel() {
-        world = new World();
         factory = new VehicleFactory();
         vehicles.add(factory.createVehicle(VehicleModelName.SAAB));
         vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
@@ -34,22 +30,23 @@ public class CarModel {
             }
         }
     }
+
     public void removeCar(){
         if (vehicles.size() > 0) {
             vehicles.remove(vehicles.size());
         }
     }
 
-    public ArrayList createNameList(){
-
-        ArrayList<String> vehiclesNames = new ArrayList<>();
-
-        for (Vehicle v: vehicles){
-            vehiclesNames.add(v.getModelName());
-        }
-        return vehiclesNames;
+    public CarEvent createCarEvent(Vehicle v) {
+        int x = (int) Math.round(v.getX());
+        int y = (int) Math.round(v.getY());
+        return new CarEvent(v.getCurrentSpeed(), x, y, v.getModelName());
     }
 
+
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
+    }
 
 
     public int getWorldX() {
@@ -58,9 +55,5 @@ public class CarModel {
 
     public int getWorldY() {
         return World.getWorldY();
-    }
-
-    public ArrayList<Vehicle> getVehicles() {
-        return vehicles;
     }
 }

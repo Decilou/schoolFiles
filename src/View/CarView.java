@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import Controller.ISubscriber;
-import Model.CarModel;
+import Event.ICarViewListener;
+import Model.Car;
+import Model.CarEvent;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -23,7 +24,7 @@ public class CarView extends JFrame {
     private int Y;
     private int counter = 0;
 
-    private ArrayList<ISubscriber> subscribers = new ArrayList<>();
+    private ArrayList<ICarViewListener> subscribers = new ArrayList<>();
 
     private DrawPanel drawPanel = new DrawPanel(800,800 - 240);
 
@@ -51,8 +52,8 @@ public class CarView extends JFrame {
         initComponents(frameName);
     }
 
-    public void moveIt(int x, int y, String name) {
-        drawPanel.moveIt(x, y, name);
+    public void moveIt(CarEvent currentCarEvent) {
+        drawPanel.moveIt(currentCarEvent);
     }
 
     public void repaint() {
@@ -178,12 +179,12 @@ public class CarView extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void subscribe(ISubscriber s) {
+    public void subscribe(ICarViewListener s) {
         subscribers.add(s);
     }
 
-    public void unsubscribe(ISubscriber s) {
-        for (ISubscriber sub: subscribers) {
+    public void unsubscribe(ICarViewListener s) {
+        for (ICarViewListener sub : subscribers) {
             if(sub == s) {
                 subscribers.remove(subscribers.indexOf(sub));
             }
@@ -191,7 +192,7 @@ public class CarView extends JFrame {
     }
 
     private void notifySubscribers() {
-        for (ISubscriber s : subscribers) {
+        for (ICarViewListener s : subscribers) {
             s.update(spinnerAmount, counter);
         }
     }

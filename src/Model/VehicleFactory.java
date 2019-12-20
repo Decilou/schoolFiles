@@ -4,6 +4,7 @@ import java.awt.*;
 
 class VehicleFactory {
 
+    //TODO: Replace this y-counter with list.size()*100
     int y = 0;
     Vehicle createVehicle(VehicleModelName name) {
 

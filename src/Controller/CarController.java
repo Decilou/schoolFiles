@@ -1,8 +1,8 @@
 package Controller;
 
+import Event.ICarViewListener;
 import Model.*;
 import View.CarView;
-import View.DrawPanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
  * modifying the model state and the updating the view.
  */
 
-public class CarController implements ISubscriber {
+public class CarController implements ICarViewListener {
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -27,6 +27,7 @@ public class CarController implements ISubscriber {
     private CarView frame;
     private CarModel model;
 
+    //Constructor
     public CarController() {
         model = new CarModel();
         frame = new CarView("CarSim 1.0", model.getWorldX(), model.getWorldY());
@@ -71,6 +72,7 @@ public class CarController implements ISubscriber {
         model.removeCar();
     }
 
+    //TODO: Remove the numbers. Replace with some sort of event.
     @Override
     public void update(int spinner, int counter) {
 
@@ -103,13 +105,13 @@ public class CarController implements ISubscriber {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle v : model.getVehicles()) {
                 v.move();
-                //TODO: THIS is where we handle carEvent. This is the trigger! A vehicle moves.
-                int x = (int) Math.round(v.getX());
-                int y = (int) Math.round(v.getY());
 
-                v.collisionWithFrame(x, y);
+                //Insert the current vehicle and create a CarEvent from it.
+                CarEvent currentCarEvent = model.createCarEvent(v);
 
-                frame.moveIt(x, y, v.getModelName());
+                v.collisionWithFrame(currentCarEvent.getX(), currentCarEvent.getY());
+
+                frame.moveIt(currentCarEvent);
                 frame.repaint();
             }
         }
