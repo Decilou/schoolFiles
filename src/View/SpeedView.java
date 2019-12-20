@@ -15,8 +15,8 @@ public class SpeedView extends JFrame implements ICarEventListener {
 
     private JPanel panel= new JPanel();
     private CarEvent currentCarEvent;
-    private JLabel name = new JLabel("name");
-    private JLabel speed = new JLabel("100");
+    private JLabel name = new JLabel("< Vehicle model name >");
+    private JLabel speed = new JLabel("< Current speed of vehicle >");
 
 
     private JPanel carFactPanel = new JPanel();
