@@ -10,6 +10,7 @@ public class CarModel {
 
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<ICarEventListener> listeners = new ArrayList<>();
+    private ArrayList<CarEvent> drawingObjects = new ArrayList<>();
 
     private VehicleFactory factory;
 
@@ -45,7 +46,7 @@ public class CarModel {
         int x = (int) Math.round(v.getX());
         int y = (int) Math.round(v.getY());
         CarEvent currentCarEvent = new CarEvent(v.getCurrentSpeed(), x, y, v.getModelName());
-        notifyListeners(currentCarEvent);
+        drawingObjects.add(currentCarEvent);
     }
 
     public ArrayList<Vehicle> getVehicles() {
@@ -74,9 +75,9 @@ public class CarModel {
         }
     }
 
-    private void notifyListeners(CarEvent currentCareEvent) {
+    public void notifyListeners() {
         for (ICarEventListener l : listeners) {
-            l.update(currentCareEvent);
+            l.update(drawingObjects);
         }
     }
 }

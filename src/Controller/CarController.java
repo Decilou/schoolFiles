@@ -110,16 +110,15 @@ public class CarController implements ICarViewListener {
             for (Vehicle v : model.getVehicles()) {
                 v.move();
 
-                //TODO: This is duplicate code. Do we need it?
                 int x = (int) Math.round(v.getX());
                 int y = (int) Math.round(v.getY());
                 v.collisionWithFrame(x, y);
 
                 //Insert the current vehicle and create a CarEvent from it.
                 model.createCarEvent(v);
-
-                frame.repaintAllViews();
             }
+            model.notifyListeners();
+            frame.repaint();
         }
     }
 }
