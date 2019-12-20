@@ -13,7 +13,7 @@ public class Lab_Vehicles {
         CarView frame = new CarView("CarSim 1.0", drawPanel, model.getWorldX(), model.getWorldY());
         CarController controller = new CarController(frame, model);
 
-        controller.subscribe(drawPanel);
-        frame.subscribe(controller);
+        controller.addListener(drawPanel);
+        frame.addListener(controller);
     }
 }

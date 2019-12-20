@@ -1,3 +1,4 @@
+/*
 package View;
 
 import javax.swing.*;
@@ -81,3 +82,4 @@ public class SpeedView extends JFrame {
 
 
 }
+*/

@@ -98,8 +98,8 @@ public class CarController implements ICarViewListener {
         }
     }
 
-    public void subscribe(ICarEventListener listener) {
-        model.subscribe(listener);
+    public void addListener(ICarEventListener listener) {
+        model.addListener(listener);
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -110,16 +110,16 @@ public class CarController implements ICarViewListener {
             for (Vehicle v : model.getVehicles()) {
                 v.move();
 
+                //TODO: This is duplicate code. Do we need it?
+                int x = (int) Math.round(v.getX());
+                int y = (int) Math.round(v.getY());
+                v.collisionWithFrame(x, y);
+
                 //Insert the current vehicle and create a CarEvent from it.
-                CarEvent currentCarEvent = model.createCarEvent(v);
+                model.createCarEvent(v);
 
-                v.collisionWithFrame(currentCarEvent.getX(), currentCarEvent.getY());
-
-                //TODO: Replace with OBSERVER-pattern
-                frame.moveIt(currentCarEvent);
-                frame.repaint();
+                frame.repaintAllViews();
             }
         }
-
     }
 }

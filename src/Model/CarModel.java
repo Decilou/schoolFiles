@@ -17,8 +17,8 @@ public class CarModel {
     public CarModel() {
         factory = new VehicleFactory();
         vehicles.add(factory.createVehicle(VehicleModelName.SAAB));
-        vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
         vehicles.add(factory.createVehicle(VehicleModelName.SCANIA));
+        vehicles.add(factory.createVehicle(VehicleModelName.VOLVO));
     }
 
     public void addRandomCar() {
@@ -41,19 +41,16 @@ public class CarModel {
         }
     }
 
-    public CarEvent createCarEvent(Vehicle v) {
+    public void createCarEvent(Vehicle v) {
         int x = (int) Math.round(v.getX());
         int y = (int) Math.round(v.getY());
         CarEvent currentCarEvent = new CarEvent(v.getCurrentSpeed(), x, y, v.getModelName());
-        notifySubscribers(currentCarEvent);
-        return currentCarEvent;
+        notifyListeners(currentCarEvent);
     }
-
 
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
-
 
     public int getWorldX() {
         return World.getWorldX();
@@ -65,11 +62,11 @@ public class CarModel {
 
 
     //-------------- LISTENER METHODS -----------------
-    public void subscribe(ICarEventListener l) {
+    public void addListener(ICarEventListener l) {
         listeners.add(l);
     }
 
-    public void unsubscribe(ICarEventListener l) {
+    public void removeListener(ICarEventListener l) {
         for (ICarEventListener listener : listeners) {
             if (listener == l) {
                 listeners.remove(listener);
@@ -77,10 +74,9 @@ public class CarModel {
         }
     }
 
-    private void notifySubscribers(CarEvent currentCareEvent) {
+    private void notifyListeners(CarEvent currentCareEvent) {
         for (ICarEventListener l : listeners) {
             l.update(currentCareEvent);
         }
     }
-
 }

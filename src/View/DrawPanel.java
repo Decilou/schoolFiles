@@ -22,8 +22,6 @@ public class DrawPanel extends JPanel implements ICarEventListener {
 
     private CarEvent currentCarEvent;
 
-    private ArrayList<String> vehicles;
-
     //TODO: Make points general for all cars no matter how many. Make dependent on CarEvent instead.
     private Point point = new Point();
 
@@ -45,16 +43,12 @@ public class DrawPanel extends JPanel implements ICarEventListener {
 
     }
 
-    //TODO: Use CarEvent to fix point-issue.
-    void moveIt(CarEvent currentCarEvent) {
+    //Update the currentCarEvent to the new one and set th temporary point accordingly.
+    public void update(CarEvent currentCarEvent) {
+        this.currentCarEvent = currentCarEvent;
         point.setLocation(currentCarEvent.getX(), currentCarEvent.getY());
     }
 
-    public void update(CarEvent currentCarEvent) {
-        this.currentCarEvent = currentCarEvent;
-    }
-
-    //TODO: Nu finns två av bilarna i EN frame sedan försvinner dom.
     // This method is called each time the panel updates/refreshes/repaints itself
 
     @Override
@@ -62,8 +56,8 @@ public class DrawPanel extends JPanel implements ICarEventListener {
         if (currentCarEvent == null) {
             super.paintComponent(g);
         } else {
-            //TODO: Should not be duplicate code.
             super.paintComponent(g);
+
             switch (currentCarEvent.getModelName()) {
                 case "Scania":
                     g.drawImage(scaniaImage, point.x, point.y, null); // see javadoc for more info on the parameters
@@ -75,7 +69,6 @@ public class DrawPanel extends JPanel implements ICarEventListener {
                     g.drawImage(saabImage, point.x, point.y, null); // see javadoc for more info on the parameters
                     break;
             }
-
         }
     }
 }

@@ -52,13 +52,11 @@ public class CarView extends JFrame {
         initComponents(frameName);
     }
 
-    public void moveIt(CarEvent currentCarEvent) {
-        drawPanel.moveIt(currentCarEvent);
+    public void repaintAllViews() {
+        drawPanel.repaint();
+        this.repaint();
     }
 
-    public void repaint() {
-        drawPanel.repaint();
-    }
     // Sets everything in place and fits everything
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
@@ -118,8 +116,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 1;
-                notifySubscribers();
-                //carC.gas(spinnerAmount);
+                notifyListeners();
             }
         });
 
@@ -127,8 +124,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 2;
-                notifySubscribers();
-                //carC.brake(spinnerAmount);
+                notifyListeners();
             }
         });
 
@@ -136,8 +132,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 3;
-                notifySubscribers();
-                //carC.startCars();
+                notifyListeners();
             }
         });
 
@@ -145,8 +140,7 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 4;
-                notifySubscribers();
-                //carC.stopCars();
+                notifyListeners();
             }
         });
 
@@ -154,14 +148,14 @@ public class CarView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 5;
-                notifySubscribers();
+                notifyListeners();
             }
         });
         removeCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 counter = 6;
-                notifySubscribers();
+                notifyListeners();
             }
         });
 
@@ -181,22 +175,21 @@ public class CarView extends JFrame {
 
 
     //-------------- LISTENER METHODS -----------------
-    public void subscribe(ICarViewListener s) {
+    public void addListener(ICarViewListener s) {
         listeners.add(s);
     }
 
-    public void unsubscribe(ICarViewListener s) {
-        for (ICarViewListener sub : listeners) {
-            if(sub == s) {
-                listeners.remove(sub);
+    public void removeListener(ICarViewListener l) {
+        for (ICarViewListener lis : listeners) {
+            if (lis == l) {
+                listeners.remove(lis);
             }
         }
     }
 
-    private void notifySubscribers() {
-        for (ICarViewListener s : listeners) {
-            s.update(spinnerAmount, counter);
+    private void notifyListeners() {
+        for (ICarViewListener l : listeners) {
+            l.update(spinnerAmount, counter);
         }
     }
-
 }
