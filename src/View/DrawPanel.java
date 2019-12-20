@@ -36,8 +36,6 @@ public class DrawPanel extends JPanel implements ICarEventListener {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
     }
 
     //Update the currentCarEvent to the new one and set th temporary point accordingly.
