@@ -1,5 +1,9 @@
 package Model;
 
+import Event.ICarEventListener;
+
+import java.util.ArrayList;
+
 public class CarEvent {
 
     private double currentSpeed;
@@ -13,6 +17,7 @@ public class CarEvent {
         this.x = x;
         this.y = y;
         this.modelName = modelName;
+
     }
 
     //Getters
@@ -31,4 +36,5 @@ public class CarEvent {
     public String getModelName() {
         return modelName;
     }
+
 }

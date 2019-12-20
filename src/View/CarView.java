@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import Event.ICarViewListener;
-import Model.Car;
 import Model.CarEvent;
 
 /**
@@ -20,13 +19,13 @@ import Model.CarEvent;
  **/
 
 public class CarView extends JFrame {
-    private int X;
-    private int Y;
+    private int x;
+    private int y;
     private int counter = 0;
 
-    private ArrayList<ICarViewListener> subscribers = new ArrayList<>();
+    private ArrayList<ICarViewListener> listeners = new ArrayList<>();
 
-    private DrawPanel drawPanel = new DrawPanel(800,800 - 240);
+    private DrawPanel drawPanel;
 
     private JPanel controlPanel = new JPanel();
 
@@ -46,9 +45,10 @@ public class CarView extends JFrame {
     private JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String frameName, int x, int y) {
-        X = x;
-        Y = y;
+    public CarView(String frameName, DrawPanel drawPanel, int x, int y) {
+        this.drawPanel = drawPanel;
+        this.x = x;
+        this.y = y;
         initComponents(frameName);
     }
 
@@ -64,7 +64,7 @@ public class CarView extends JFrame {
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X, Y));
+        this.setPreferredSize(new Dimension(x, y));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
@@ -96,20 +96,20 @@ public class CarView extends JFrame {
         controlPanel.add(brakeButton, 3);
         controlPanel.add(removeCarButton, 4);
         controlPanel.add(lowerBedButton, 5);
-        controlPanel.setPreferredSize(new Dimension((X / 2) + 4, 200));
+        controlPanel.setPreferredSize(new Dimension((x / 2) + 4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 
 
         startButton.setBackground(Color.blue);
         startButton.setForeground(Color.green);
-        startButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        startButton.setPreferredSize(new Dimension(x / 5 - 15, 200));
         this.add(startButton);
 
 
         stopButton.setBackground(Color.red);
         stopButton.setForeground(Color.black);
-        stopButton.setPreferredSize(new Dimension(X / 5 - 15, 200));
+        stopButton.setPreferredSize(new Dimension(x / 5 - 15, 200));
         this.add(stopButton);
 
         // This actionListener is for the gas button only
@@ -179,20 +179,22 @@ public class CarView extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+
+    //-------------- LISTENER METHODS -----------------
     public void subscribe(ICarViewListener s) {
-        subscribers.add(s);
+        listeners.add(s);
     }
 
     public void unsubscribe(ICarViewListener s) {
-        for (ICarViewListener sub : subscribers) {
+        for (ICarViewListener sub : listeners) {
             if(sub == s) {
-                subscribers.remove(subscribers.indexOf(sub));
+                listeners.remove(sub);
             }
         }
     }
 
     private void notifySubscribers() {
-        for (ICarViewListener s : subscribers) {
+        for (ICarViewListener s : listeners) {
             s.update(spinnerAmount, counter);
         }
     }

@@ -1,9 +1,19 @@
 import Controller.CarController;
+import View.CarView;
+import Model.CarModel;
+import View.DrawPanel;
 
 public class Lab_Vehicles {
 
     public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
+
+        //Create model, view, controller.
+        CarModel model = new CarModel();
+        DrawPanel drawPanel = new DrawPanel(model.getWorldX(), model.getWorldY() - 240);
+        CarView frame = new CarView("CarSim 1.0", drawPanel, model.getWorldX(), model.getWorldY());
+        CarController controller = new CarController(frame, model);
+
+        controller.subscribe(drawPanel);
+        frame.subscribe(controller);
     }
 }

@@ -1,5 +1,6 @@
 package Controller;
 
+import Event.ICarEventListener;
 import Event.ICarViewListener;
 import Model.*;
 import View.CarView;
@@ -28,10 +29,9 @@ public class CarController implements ICarViewListener {
     private CarModel model;
 
     //Constructor
-    public CarController() {
-        model = new CarModel();
-        frame = new CarView("CarSim 1.0", model.getWorldX(), model.getWorldY());
-        frame.subscribe(this);
+    public CarController(CarView frame, CarModel model) {
+        this.frame = frame;
+        this.model = model;
         timer.start();
     }
 
@@ -98,6 +98,10 @@ public class CarController implements ICarViewListener {
         }
     }
 
+    public void subscribe(ICarEventListener listener) {
+        model.subscribe(listener);
+    }
+
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      */
@@ -111,10 +115,11 @@ public class CarController implements ICarViewListener {
 
                 v.collisionWithFrame(currentCarEvent.getX(), currentCarEvent.getY());
 
+                //TODO: Replace with OBSERVER-pattern
                 frame.moveIt(currentCarEvent);
                 frame.repaint();
             }
         }
-    }
 
+    }
 }

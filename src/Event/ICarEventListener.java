@@ -1,5 +1,7 @@
 package Event;
 
-public interface ICarEventListener {
+import Model.CarEvent;
 
+public interface ICarEventListener {
+    void update(CarEvent currentCarEvent);
 }
