@@ -30,8 +30,14 @@ public class SpeedView extends JFrame implements ICarEventListener {
     //TODO: Make it iterate the list and add several. (MAYBE)
     public void update(ArrayList<CarEvent> drawingObjects) {
         this.drawingObjects = drawingObjects;
-        name.setText(drawingObjects.get(0).getModelName());
-        speed.setText(drawingObjects.get(0).getSpeedAsString());
+
+        if (!drawingObjects.isEmpty()) {
+            name.setText(drawingObjects.get(0).getModelName());
+            speed.setText(drawingObjects.get(0).getSpeedAsString());
+        } else {
+            name.setText("");
+            speed.setText("");
+        }
     }
 
     private void initComponents(String title) {

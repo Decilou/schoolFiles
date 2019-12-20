@@ -17,15 +17,15 @@ class VehicleFactory {
         if (name == null) {
             return null;
         } else if (name.equals(VehicleModelName.SAAB)) {
-            y = vehicles.size() * 80;
+            y = (vehicles.size() + 1) * 80;
             return new Saab95(Color.black, 10, y);
 
         } else if (name.equals(VehicleModelName.VOLVO)) {
-            y = vehicles.size() * 80;
+            y = (vehicles.size() + 1) * 80;
             return new Volvo240(Color.gray, 10, y);
 
         } else if (name.equals(VehicleModelName.SCANIA)) {
-            y = vehicles.size() * 80;
+            y = (vehicles.size() + 1) * 80;
             return new Scania(Color.red, 10, y);
         }
         return null;
