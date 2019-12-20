@@ -39,6 +39,6 @@ public class CarEvent {
 
     @Override
     public String toString() {
-        return "Driving in " + currentSpeed + " km/h";
+        return "Driving in " + (double)Math.round(currentSpeed*100)/100 + " km/h";
     }
 }
