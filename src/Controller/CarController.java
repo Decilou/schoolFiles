@@ -107,6 +107,7 @@ public class CarController implements ICarViewListener {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+            model.clearDrawingObjects();
             for (Vehicle v : model.getVehicles()) {
                 v.move();
 

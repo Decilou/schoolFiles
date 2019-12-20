@@ -49,6 +49,10 @@ public class CarModel {
         drawingObjects.add(currentCarEvent);
     }
 
+    public void clearDrawingObjects() {
+        drawingObjects = new ArrayList<>();
+    }
+
     public ArrayList<Vehicle> getVehicles() {
         return vehicles;
     }
