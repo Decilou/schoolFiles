@@ -15,8 +15,8 @@ public class Lab_Vehicles {
         SpeedView speed = new SpeedView("A need for speed");
         CarController controller = new CarController(frame, model);
 
-        controller.subscribe(drawPanel);
-        frame.subscribe(controller);
-        controller.subscribe(speed);
+        controller.addListener(drawPanel);
+        frame.addListener(controller);
+        controller.addListener(speed);
     }
 }

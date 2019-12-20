@@ -37,4 +37,8 @@ public class CarEvent {
         return modelName;
     }
 
+    @Override
+    public String toString() {
+        return "Driving in " + currentSpeed + " km/h";
+    }
 }

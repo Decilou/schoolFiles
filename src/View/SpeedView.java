@@ -15,21 +15,34 @@ public class SpeedView extends JFrame implements ICarEventListener {
 
     private JPanel panel= new JPanel();
     private CarEvent currentCarEvent;
+    private JLabel name = new JLabel("name");
+    private JLabel speed = new JLabel("100");
+
+
+    private JPanel carFactPanel = new JPanel();
 
     public SpeedView(String frameName) {
         initComponents(frameName);
     }
 
-
     public void update(CarEvent currentCarEvent) {
         this.currentCarEvent = currentCarEvent;
+        name.setText(currentCarEvent.getModelName());
+        speed.setText(currentCarEvent.toString());
     }
 
     private void initComponents(String title) {
 
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(200 , 300));
+        this.setPreferredSize(new Dimension(200 , 80));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+
+        carFactPanel.setLayout(new BorderLayout());
+        carFactPanel.add(name, BorderLayout.PAGE_START);
+        carFactPanel.add(speed, BorderLayout.PAGE_END);
+
+
+        this.add(carFactPanel);
 
 
 
