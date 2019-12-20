@@ -20,10 +20,7 @@ public class DrawPanel extends JPanel implements ICarEventListener {
     private BufferedImage volvoImage;
     private BufferedImage scaniaImage;
 
-    private CarEvent currentCarEvent;
-
-    //TODO: Make points general for all cars no matter how many. Make dependent on CarEvent instead.
-    private Point point = new Point();
+    private ArrayList<CarEvent> drawingObjects = new ArrayList<>();
 
     public DrawPanel(int x, int y) {
         // Initializes the panel and reads the images
@@ -44,31 +41,27 @@ public class DrawPanel extends JPanel implements ICarEventListener {
     }
 
     //Update the currentCarEvent to the new one and set th temporary point accordingly.
-    public void update(CarEvent currentCarEvent) {
-        this.currentCarEvent = currentCarEvent;
-        point.setLocation(currentCarEvent.getX(), currentCarEvent.getY());
+    public void update(ArrayList<CarEvent> drawingObjects) {
+        this.drawingObjects = drawingObjects;
+    }
+
+    private Image selectImage(String modelName) {
+        if (modelName.equals("Scania")) {
+            return scaniaImage;
+        } else if (modelName.equals("Saab95")) {
+            return saabImage;
+        } else {
+            return volvoImage;
+        }
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
 
     @Override
     protected void paintComponent(Graphics g) {
-        if (currentCarEvent == null) {
-            super.paintComponent(g);
-        } else {
-            super.paintComponent(g);
-
-            switch (currentCarEvent.getModelName()) {
-                case "Scania":
-                    g.drawImage(scaniaImage, point.x, point.y, null); // see javadoc for more info on the parameters
-                    break;
-                case "Volvo240":
-                    g.drawImage(volvoImage, point.x, point.y, null); // see javadoc for more info on the parameters
-                    break;
-                case "Saab95":
-                    g.drawImage(saabImage, point.x, point.y, null); // see javadoc for more info on the parameters
-                    break;
-            }
+        super.paintComponent(g);
+        for (CarEvent car : drawingObjects) {
+            g.drawImage(selectImage(car.getModelName()), car.getX(), car.getY(), null);
         }
     }
 }

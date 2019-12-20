@@ -52,9 +52,9 @@ public class CarView extends JFrame {
         initComponents(frameName);
     }
 
-    public void repaintAllViews() {
+    @Override
+    public void repaint() {
         drawPanel.repaint();
-        this.repaint();
     }
 
     // Sets everything in place and fits everything

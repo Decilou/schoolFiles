@@ -10,13 +10,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.PrivateKey;
+import java.util.ArrayList;
 
 public class SpeedView extends JFrame implements ICarEventListener {
 
     private JPanel panel= new JPanel();
-    private CarEvent currentCarEvent;
-    private JLabel name = new JLabel("< Vehicle model name >");
-    private JLabel speed = new JLabel("< Current speed of vehicle >");
+
+    private ArrayList<CarEvent> drawingObjects = new ArrayList<>();
+    private JLabel name = new JLabel("name");
+    private JLabel speed = new JLabel("100");
 
 
     private JPanel carFactPanel = new JPanel();
@@ -25,10 +27,11 @@ public class SpeedView extends JFrame implements ICarEventListener {
         initComponents(frameName);
     }
 
-    public void update(CarEvent currentCarEvent) {
-        this.currentCarEvent = currentCarEvent;
-        name.setText(currentCarEvent.getModelName());
-        speed.setText(currentCarEvent.toString());
+    //TODO: Make it iterate the list and add several. (MAYBE)
+    public void update(ArrayList<CarEvent> drawingObjects) {
+        this.drawingObjects = drawingObjects;
+        name.setText(drawingObjects.get(0).getModelName());
+        speed.setText(drawingObjects.get(0).getSpeedAsString());
     }
 
     private void initComponents(String title) {

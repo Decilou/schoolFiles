@@ -2,6 +2,8 @@ package Event;
 
 import Model.CarEvent;
 
+import java.util.ArrayList;
+
 public interface ICarEventListener {
-    void update(CarEvent currentCarEvent);
+    void update(ArrayList<CarEvent> drawingObjects);
 }
